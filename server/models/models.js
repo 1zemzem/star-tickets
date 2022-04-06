@@ -4,8 +4,13 @@ const { DataTypes } = require("sequelize");
 const User = sequelize.define("user", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   email: { type: DataTypes.STRING, unique: true },
+  email: { type: DataTypes.STRING },
   password: { type: DataTypes.STRING },
   role: { type: DataTypes.STRING, defaultValue: "USER" },
+});
+
+const Profile = sequelize.define("profile", {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 });
 
 const Basket = sequelize.define("basket", {
@@ -23,7 +28,7 @@ const Film = sequelize.define("film", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   title: { type: DataTypes.STRING, unique: true, allowNull: false },
   img: { type: DataTypes.STRING, unique: true, allowNull: false },
-//   rating: { type: DataTypes.INTEGER, unique: true, allowNull: false },
+  time: { type: DataTypes.INTEGER, unique: true, allowNull: false },
   description: { type: DataTypes.STRING, unique: true, allowNull: false },
 });
 
@@ -39,11 +44,15 @@ const Calendar = sequelize.define("calendar", {
 
 const Rating = sequelize.define("rating", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  rate: { type: DataTypes.INTEGER, allowNull: false},
+  rate: { type: DataTypes.INTEGER, allowNull: false },
+  comment: { type: DataTypes.STRING },
 });
 
-User.hasOne(Basket);
-Basket.belongsTo(User);
+User.hasOne(Profile);
+Profile.belongsTo(User);
+
+Profile.hasOne(Basket);
+Basket.belongsTo(Profile);
 
 User.hasMany(Rating);
 Rating.belongsTo(User);
@@ -65,10 +74,11 @@ Day.belongsTo(Calendar);
 
 module.exports = {
   User,
+  Profile,
   Basket,
   Seat,
   Film,
   Rating,
   Day,
   Calendar,
-}
+};
