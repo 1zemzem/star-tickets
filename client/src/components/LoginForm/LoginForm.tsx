@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import "./loginForm.css";
+import "./LoginForm.css";
 
 
 interface IFormInput {
@@ -60,3 +60,4 @@ export const LoginForm = () => {
     </div>
   );
 };
+
