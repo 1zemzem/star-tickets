@@ -3,7 +3,7 @@ import React from 'react';
 const SeatsPage = () => {
     return (
         <div>
-            seatpage
+            <h1>seats</h1>
         </div>
     );
 };

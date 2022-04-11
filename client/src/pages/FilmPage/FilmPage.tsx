@@ -3,7 +3,7 @@ import React from 'react';
 const FilmPage = () => {
     return (
         <div>
-            filmpage
+            <h1>film</h1>
         </div>
     );
 };

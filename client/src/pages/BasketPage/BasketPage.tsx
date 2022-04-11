@@ -3,7 +3,7 @@ import React from 'react';
 const BasketPage = () => {
     return (
         <div>
-            basket
+           <h1>basket</h1>
         </div>
     );
 };

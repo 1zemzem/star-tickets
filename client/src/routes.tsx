@@ -4,7 +4,7 @@ import AuthSeatsPage from "./pages/AuthSeatsPage";
 import BasketPage from "./pages/BasketPage";
 import FilmPage from "./pages/FilmPage";
 import LoginPage from "./pages/LoginPage";
-import MainPage from "./pages/MainPage";
+import HomePage from "./pages/HomePage";
 import SeatsPage from "./pages/SeatsPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import {
@@ -13,7 +13,7 @@ import {
   FILM_ROUTE,
   FILM_ROUTE_AUTH,
   LOGIN_ROUTE,
-  MAIN_ROUTE,
+  HOME_ROUTE,
   PROFILE_ROUTE,
   REGISTR_ROUTE,
   SEATS_ROUTE,
@@ -23,46 +23,46 @@ import {
 export const authRoutes = [
   {
     path: ADMIN_ROUTE,
-    Component: AdminPage,
+    Component: <AdminPage />,
   },
   {
     path: BASKET_ROUTE,
-    Component: BasketPage,
+    Component: <BasketPage />,
   },
   {
     path: FILM_ROUTE_AUTH + '/:id',
-    Component: AuthFilmPage,
+    Component: <AuthFilmPage />,
   },
   {
-    path: SEATS_ROUTE_AUTH + '/:id',
-    Component: AuthSeatsPage,
+    path: SEATS_ROUTE_AUTH,
+    Component: <AuthSeatsPage />,
   },
   {
     path: PROFILE_ROUTE,
-    Component: UserProfilePage,
+    Component: <UserProfilePage />,
   },
 ];
 
 export const publicRoutes = [
    
       {
-        path: MAIN_ROUTE,
-        Component: MainPage,
+        path: HOME_ROUTE,
+        Component: <HomePage />,
       },
       {
         path: FILM_ROUTE + '/:id',
-        Component: FilmPage,
+        Component: <FilmPage />,
       },
       {
-        path: SEATS_ROUTE + '/:id',
-        Component: SeatsPage,
+        path: SEATS_ROUTE,
+        Component: <SeatsPage />,
       },
       {
         path: LOGIN_ROUTE,
-        Component: LoginPage,
+        Component: <LoginPage />,
       },
       {
         path: REGISTR_ROUTE,
-        Component: LoginPage,
+        Component: <LoginPage />,
       },
 ];
