@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import SeatsPage from "../pages/SeatsPage";
 import { authRoutes, publicRoutes } from "../routes";
+import Footer from "./Footer";
 
 const AppRouter = () => {
   const isAuth = true;

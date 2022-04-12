@@ -25,7 +25,7 @@ export const LoginForm = () => {
 
   return (
     <div className="form">
-      <h1>Зарегистрируйтесь</h1>
+      <h1 className="form-title">Зарегистрируйтесь</h1>
       <p className="subtitle">Для покупки билетов и получения расширеннных возможностей</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
@@ -39,8 +39,8 @@ export const LoginForm = () => {
         </div>
 
         <div>
-          <label htmlFor="password">Password</label>
-          <input
+          <label className="form-label" htmlFor="password">Password</label>
+          <input className="form-input"
             {...register("password", {
               required: "! this line is required",
               minLength: {
