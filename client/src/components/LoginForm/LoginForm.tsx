@@ -1,63 +1,100 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import "./LoginForm.css";
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+// const theme = createTheme();
 
-interface IFormInput {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-}
+export default function LoginForm() {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-export const LoginForm = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isValid },
-  } = useForm<IFormInput>({ mode: "onBlur" });
-
-  const onSubmit = (data: IFormInput) => {
-    alert(JSON.stringify(data));
-    reset();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
   };
 
   return (
-    <div className="form">
-      <h1 className="form-title">Зарегистрируйтесь</h1>
-      <p className="subtitle">Для покупки билетов и получения расширеннных возможностей</p>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            {...register("email", { required: "! this line is required" })}
-            placeholder="koko1049@gmail.com"
-            type="email"
-          />
-          {errors?.email && <p>{errors.email.message}</p>}
-        </div>
-
-        <div>
-          <label className="form-label" htmlFor="password">Password</label>
-          <input className="form-input"
-            {...register("password", {
-              required: "! this line is required",
-              minLength: {
-                value: 6,
-                message: "6 simbols minimum required",
-              },
-            })}
-            placeholder="6 simbols minimum"
-            type="password"
-          />
-          {errors?.password && <p>{errors.password.message}</p>}
-        </div>
-        
-        <input type="submit" disabled={!isValid} />
-        <p className="subtitle">Есть учетная запись? </p>
-      </form>
-    </div>
+    // <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs" >
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password 6 simbols minimum"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="secondary"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>       
+      </Container>
+    // </ThemeProvider>
   );
-};
+}
 

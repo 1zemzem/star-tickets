@@ -1,9 +1,14 @@
 import React from 'react';
+import FilmCard from '../../components/FilmCard/FilmCard';
 
 const FilmPage = () => {
     return (
-        <div>
-            <h1>film</h1>
+        <div className='page'>
+           
+            <FilmCard />
+            
+            
+            
         </div>
     );
 };

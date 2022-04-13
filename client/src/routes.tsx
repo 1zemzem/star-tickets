@@ -50,7 +50,8 @@ export const publicRoutes = [
         Component: <HomePage />,
       },
       {
-        path: FILM_ROUTE + '/:id',
+        // path: FILM_ROUTE + '/:id', не забыть!!!
+        path: FILM_ROUTE,
         Component: <FilmPage />,
       },
       {
