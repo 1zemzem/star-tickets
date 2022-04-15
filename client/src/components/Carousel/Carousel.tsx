@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardMedia, Container } from "@mui/material";
+import { Card, CardMedia } from "@mui/material";
 import filmImg from "../../images/man-hiding-face-with-grey-textile 1.jpg";
 
 const HCarousel = () => {
