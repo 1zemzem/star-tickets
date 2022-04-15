@@ -1,0 +1,36 @@
+.background-half-dark {
+    background: linear-gradient(225deg, rgb(247, 251, 250) 35%, rgb(5, 6, 6));
+    z-index: 2;
+}
+
+.button-round {
+    border-radius: 20px;
+    background-color: #F00F60;
+    border: #F00F60;
+    max-width: 200px;
+    width: 100%;
+}
+
+@media(min-width: 576px) {
+    .button-round {
+        max-width: 300px;
+    }
+}
+
+@media(min-width: 768px) {
+    .button-round {
+        max-width: 400px;
+    }
+}
+
+@media(min-width: 992px) {
+    .button-round {
+        max-width: 500px;
+    }
+}
+
+@media(min-width: 1200px) {
+    .button-round {
+        max-width: 600px;
+    }
+}

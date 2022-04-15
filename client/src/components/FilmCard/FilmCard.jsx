@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
-import image from "../../images/strange.jpg";
+import img2 from "../../images/carouselImg2.jpg";
 
 
 export default function FilmCard() {
@@ -16,7 +16,7 @@ export default function FilmCard() {
       <CardMedia
         component="img"
         height="600"
-        image={image}
+        image={img2}
         alt="green iguana"
       />
       <Container>

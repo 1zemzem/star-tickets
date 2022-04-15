@@ -16,21 +16,23 @@ const useStyles = makeStyles({
   },
 });
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8];
+const cards = [1, 2, 3, 4, 5, 6];
 
 const FilmList = () => {
   const styles = useStyles();
     return (
         <Paper>
-        <Container sx={{ py: 2 }} >
+        <Container sx={{ py: 4 }} >
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={4} md={3}>
+              <Grid item key={card} xs={6} sm={4} md={3} xl={2}>
                 <Card
                   sx={{
                     height: "100%",
+                    maxWidth: "180px",
                     display: "flex",
                     flexDirection: "column",
+                    
                   }}
                 >
                   <CardMedia

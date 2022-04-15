@@ -1,14 +1,61 @@
 import React from "react";
-import { Card, CardMedia } from "@mui/material";
-import filmImg from "../../images/man-hiding-face-with-grey-textile 1.jpg";
+import img1 from "../../images/carouselImg1.jpg";
+import img2 from "../../images/carouselImg2.jpg";
+import img3 from "../../images/carouselImg3.jpg";
+import { Button, Carousel } from "react-bootstrap";
+import "./Carousel.css";
 
 const HCarousel = () => {
   return (
-   
-      <Card>
-        <CardMedia component="img" height="600" image={filmImg} alt="film" />
-      </Card>
-   
+    <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={img1}
+          alt="Second slide"
+          max-height="800px"
+        />
+        <Carousel.Caption>
+          <div>
+            <Button size="lg" className="button-round">
+              купить билет
+            </Button>
+          </div>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={img2}
+          alt="Second slide"
+          max-height="800px"
+        />
+        <Carousel.Caption>
+          <div>
+            <Button size="lg" className="button-round">
+              купить билет
+            </Button>
+          </div>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={img3}
+          alt="Second slide"
+          max-height="800px"
+        />
+        <Carousel.Caption>
+          <div>
+            <Button size="lg" className="button-round">
+              купить билет
+            </Button>
+          </div>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
   );
 };
 

@@ -14,9 +14,12 @@ import logo from "../../images/logo.svg";
 
 
 const useStyles = makeStyles({
-  root: {
-    "&:hover": {
-         backgroundColor: "#121212",
+  components: {
+    MuiAppBar: {
+      "&:hover": {
+        backgroundColor: "#a9a6a6",
+    }  
+         
   },
 }
 });
@@ -41,8 +44,8 @@ export default function Navibar() {
 
    return (
     <AppBar
-      position="fixed"
-      className={styles.root}      
+      position="fixed" color='transparent'
+      className={styles.components}      
          >
       <Container fixed maxWidth="xl">
         <Toolbar disableGutters>
