@@ -9,12 +9,26 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+
 import logo from "../../images/logo.svg";
+// import { makeStyles } from '@mui/styles';
+
+// const useStyles = makeStyles({
+//   root: {
+//     "&:hover": {
+//       backgroundColor: "#121212",
+//     }
+//   }
+//   });
+
 
 const pages = ["Афиша", "Инфо", "Мой профиль"];
-// const settings = ["Мой профиль", "Выйти"];
+
 
 export default function Navibar() {
+
+  
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -27,8 +41,17 @@ export default function Navibar() {
     setAnchorElNav(null);
   };
 
+  // const classes = useStyles();
+
   return (
-    <AppBar position="fixed" color="transparent">
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: "transparent",
+        backgroundImage: "none",
+      }}
+      // className={classes.root} 
+         >
       <Container fixed maxWidth="xl">
         <Toolbar disableGutters>
           <Box

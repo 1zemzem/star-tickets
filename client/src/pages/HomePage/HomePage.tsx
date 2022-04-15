@@ -17,7 +17,7 @@ export default function HomePage() {
     <>
       <HCarousel />
       <Paper>
-        <Container sx={{ py: 2 }} maxWidth="md">
+        <Container sx={{ py: 2 }} >
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={4} md={3}>
