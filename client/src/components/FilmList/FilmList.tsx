@@ -8,10 +8,18 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Paper } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  cover: {
+    borderRadius: "2rem",
+  },
+});
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const FilmList = () => {
+  const styles = useStyles();
     return (
         <Paper>
         <Container sx={{ py: 2 }} >
@@ -26,6 +34,7 @@ const FilmList = () => {
                   }}
                 >
                   <CardMedia
+                  className={styles.cover}
                     component="img"
                     image="https://source.unsplash.com/random"
                     alt="random"

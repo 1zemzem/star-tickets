@@ -7,20 +7,13 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import image from "../../images/strange.jpg";
-import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles({
-  cover: {
-    borderRadius: "2rem",
-  },
-});
 
 export default function FilmCard() {
-  const styles = useStyles();
+  
   return (
     <Card sx={{ bgcolor: "#27272a" }}>
       <CardMedia
-        className={styles.cover}
         component="img"
         height="600"
         image={image}
