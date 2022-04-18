@@ -7,8 +7,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Paper } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { margin } from "react-material-ui-carousel/node_modules/@mui/system";
 
 const useStyles = makeStyles({
   cover: {
@@ -16,51 +17,80 @@ const useStyles = makeStyles({
   },
 });
 
-const cards = [1, 2, 3, 4, 5, 6];
+const cards = [1, 2, 3, 4, 5, 6, 7];
 
 const FilmList = () => {
   const styles = useStyles();
-    return (
-        <Paper>
-        <Container sx={{ py: 4 }} >
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={6} sm={4} md={3} xl={2}>
-                <Card
+  return (
+    <Paper sx={{ py: 6 }}>
+      <Container maxWidth="lg">
+        <Grid
+          container
+          rowSpacing={8}
+          columnSpacing={4}
+          px={4}
+          justifyContent="center"
+        >
+          {cards.map((card) => (
+            <Grid item key={card} xl={3} md={4} sm={6}>
+              <Card
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  border: "none",
+                  boxShadow: "none",
+                  mr: 0,
+                  mb: 8,
+                }}
+              >
+                <CardMedia
+                  sx={{ mb: 4 }}
+                  className={styles.cover}
+                  component="img"
+                  image="https://source.unsplash.com/random"
+                  alt="random"
+                />
+                <Box
                   sx={{
-                    height: "100%",
-                    maxWidth: "180px",
                     display: "flex",
                     flexDirection: "column",
-                    
+                    alignItems: "center",
                   }}
                 >
-                  <CardMedia
-                  className={styles.cover}
-                    component="img"
-                    image="https://source.unsplash.com/random"
-                    alt="random"
-                  />
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                    <Typography sx={{ mb: 4 }}>age limit</Typography>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      sx={{ mb: 4 }}
+                    >
+                      Title
                     </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
-                    </Typography>
+                    <Typography>genre</Typography>
                   </CardContent>
-                  <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
+
+                  <CardActions
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Button variant="outlined" sx={{ mb: 4 }}>
+                      Time
+                    </Button>
+                    <Button>Купить</Button>
                   </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Paper>
-    );
+                </Box>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Paper>
+  );
 };
 
 export default FilmList;

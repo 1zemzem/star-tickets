@@ -8,7 +8,7 @@ import "./Carousel.css";
 const HCarousel = () => {
   return (
     <Carousel>
-      <Carousel.Item>
+      <Carousel.Item> 
         <img
           className="d-block w-100"
           src={img1}
@@ -17,8 +17,8 @@ const HCarousel = () => {
         />
         <Carousel.Caption>
           <div>
-            <Button size="lg" className="button-round">
-              купить билет
+            <Button variant="outline-light" size="lg" className="button-round">
+              КУПИТЬ БИЛЕТ
             </Button>
           </div>
         </Carousel.Caption>
@@ -33,8 +33,8 @@ const HCarousel = () => {
         />
         <Carousel.Caption>
           <div>
-            <Button size="lg" className="button-round">
-              купить билет
+            <Button variant="outline-light" size="lg" className="button-round">
+            КУПИТЬ БИЛЕТ
             </Button>
           </div>
         </Carousel.Caption>
@@ -49,8 +49,8 @@ const HCarousel = () => {
         />
         <Carousel.Caption>
           <div>
-            <Button size="lg" className="button-round">
-              купить билет
+            <Button variant="outline-light" size="lg" className="button-round" >
+            КУПИТЬ БИЛЕТ
             </Button>
           </div>
         </Carousel.Caption>

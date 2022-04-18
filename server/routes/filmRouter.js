@@ -1,9 +1,10 @@
 const Router = require("express");
 const router = new Router();
+const filmController = require('../controllers/filmController')
 
-router.post("/");
-router.get("/");
-router.get("/:id");
-router.delete("/");
+router.post("/", filmController.create);
+router.get("/", filmController.getAll);
+router.get("/:id", filmController.getOne);
+router.delete("/", filmController.delete);
 
 module.exports = router;

@@ -8,10 +8,16 @@ import Navibar from "../components/Navibar";
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
+
+    background: {
+      paper: "#181819",          
+    },
+
     primary: {
       main: '#3f51b5',
       dark: '#121212'
     },
+
     secondary: {
       main: '#F00F60',
     },

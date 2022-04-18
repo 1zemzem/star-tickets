@@ -9,7 +9,7 @@ class UserController {
     // res.status(200).json({ message: "wwworking" });
     const { id } = req.query;
     if (!id) {
-      next(ApiError.badRequest("no id"));
+      return next(ApiError.badRequest("no id"));
     }
 
     res.json(id);
@@ -19,5 +19,3 @@ class UserController {
 }
 
 module.exports = new UserController();
-
-

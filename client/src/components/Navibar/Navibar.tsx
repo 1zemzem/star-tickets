@@ -47,7 +47,7 @@ export default function Navibar() {
       position="fixed" color='transparent'
       className={styles.components}      
          >
-      <Container fixed maxWidth="xl">
+      <Container fixed >
         <Toolbar disableGutters>
           <Box
             component="div"
@@ -86,7 +86,7 @@ export default function Navibar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" >{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -100,6 +100,7 @@ export default function Navibar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
+              size="large"
                 variant="text"
                 key={page}
                 onClick={handleCloseNavMenu}

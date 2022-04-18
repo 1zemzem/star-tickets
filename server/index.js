@@ -13,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api", router);
 
+//errorHandler в самом конце!!!
 app.use(errorHandler);
 
 // app.get('/', (req, res) => {
