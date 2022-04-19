@@ -4,11 +4,14 @@ const { Dates } = require("../models/models");
 class DatesController {
   async create(req, res) {
     const { datetime } = req.body;
-    const dates = await Dates.create({ datetime });
-    return res.json(dates);
+    const date = await Dates.create({ datetime });
+    return res.json(date);
   }
 
-  async getAll(req, res) {}
+  async getAll(req, res) {
+    const dates = await Dates.findAll();
+    return res.json(dates)
+  }
 
   async getOne(req, res) {}
 

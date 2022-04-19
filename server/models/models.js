@@ -13,14 +13,14 @@ const User = sequelize.define("user", {
 const Tickets = sequelize.define("tickets", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   seat_number: { type: DataTypes.INTEGER, unique: true, allowNull: false },
-  price: { type: DataTypes.INTEGER, unique: true, allowNull: false },
+  price: { type: DataTypes.INTEGER, allowNull: false },
 });
 
 const Film = sequelize.define("film", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   title: { type: DataTypes.STRING, unique: true, allowNull: false },
-  img: { type: DataTypes.STRING, unique: true, allowNull: false },
-  description: { type: DataTypes.STRING, unique: true, allowNull: false },
+  img: { type: DataTypes.STRING, allowNull: false },
+  description: { type: DataTypes.STRING, allowNull: false },
   genre: { type: DataTypes.STRING, allowNull: false },
   age_limit: { type: DataTypes.STRING, allowNull: false },
 });
