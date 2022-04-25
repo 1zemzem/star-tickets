@@ -51,7 +51,7 @@ class FilmController {
       img.mv(path.resolve(__dirname, "..", "static", fileName));
 
       const film = await Film.update(
-        { title, description, genre, age_limit },
+        { title, description, genre, age_limit, img: fileName },
         { where: { id: req.params.id } }
       );
       return res.status(200).json(film);

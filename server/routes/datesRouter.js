@@ -5,6 +5,7 @@ const datesController = require('../controllers/datesController')
 router.post("/", datesController.create);
 router.get("/", datesController.getAll);
 router.get("/:id", datesController.getOne);
-router.delete("/", datesController.delete);
+router.put("/:id", datesController.updateOne)
+router.delete("/:id", datesController.deleteOne);
 
 module.exports = router;
