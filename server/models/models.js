@@ -21,6 +21,7 @@ const Film = sequelize.define("film", {
   title: { type: DataTypes.STRING, allowNull: false },
   img: { type: DataTypes.STRING, allowNull: false },
   description: { type: DataTypes.STRING, allowNull: false },
+  info: { type: DataTypes.STRING, allowNull: false},
   genre: { type: DataTypes.STRING, allowNull: false },
   age_limit: { type: DataTypes.STRING, allowNull: false },
 });
