@@ -5,7 +5,7 @@ import { Paper } from "@mui/material";
 
 const Footer = () => {
   return (
-    <Paper sx={{  p: 6 }} component="footer">
+    <Paper sx={{  p: 6, position: "fixed", bottom: 0, width: "100%" }} component="footer" >
       <Typography variant="h6" align="center" gutterBottom>
         Footer
       </Typography>

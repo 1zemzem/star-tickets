@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Box, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { margin } from "react-material-ui-carousel/node_modules/@mui/system";
+
 
 const useStyles = makeStyles({
   cover: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-const cards = [1, 2, 3, 4, 5, 6, 7];
+const cards = [1, 2, 3, 4, 5, 6];
 
 const FilmList = () => {
   const styles = useStyles();
@@ -32,7 +32,7 @@ const FilmList = () => {
           justifyContent="center"
         >
           {cards.map((card) => (
-            <Grid item key={card} xl={3} md={4} sm={6}>
+            <Grid item key={card} lg={3} md={4} sm={6} xs={12}>
               <Card
                 sx={{
                   height: "100%",
