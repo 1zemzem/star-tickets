@@ -47,7 +47,7 @@ export default function Navibar() {
       position="fixed" color='transparent'
       className={styles.components}      
          >
-      <Container fixed >
+      <Container maxWidth="lg" >
         <Toolbar disableGutters>
           <Box
             component="div"

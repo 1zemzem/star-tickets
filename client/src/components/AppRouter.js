@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 import { authRoutes, publicRoutes } from "../routes";
-import Footer from "./Footer";
 
 const AppRouter = () => {
   const isAuth = true;

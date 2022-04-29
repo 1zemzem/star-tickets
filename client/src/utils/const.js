@@ -1,10 +1,10 @@
-export const ADMIN_ROUTE = '/admin'
-export const LOGIN_ROUTE = '/login'
-export const REGISTR_ROUTE = '/registration'
-export const BASKET_ROUTE = '/basket'
-export const FILM_ROUTE = '/film'
-export const SEATS_ROUTE = '/seats'
-export const FILM_ROUTE_AUTH = '/film-auth'
-export const SEATS_ROUTE_AUTH = '/seats-auth'
-export const PROFILE_ROUTE = '/profile'
-export const HOME_ROUTE = '/'
+export const HOME_ROUTE = "/";
+export const ADMIN_AUTH = "/admin";
+export const USER_AUTH = "/user";
+
+export const LOGIN_ROUTE = "/login";
+export const REGISTR_ROUTE = "/registration";
+
+export const FILM_ROUTE = "/film";
+export const TICKETS_AUTH = "/tickets";
+export const PAYMENT_AUTH = "/payment";

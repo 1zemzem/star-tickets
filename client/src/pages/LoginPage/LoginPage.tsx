@@ -1,14 +1,12 @@
-import { Container } from '@mui/material';
-import React from 'react';
-import LoginForm from '../../components/LoginForm/LoginForm';
-
+import { Paper } from "@mui/material";
+import React from "react";
+import LoginForm from "../../components/LoginForm/LoginForm";
 
 const LoginPage = () => {
   return (
-    <Container>
+    <Paper sx={{ py: 12 }}>
       <LoginForm />
-    </Container>
-   
+    </Paper>
   );
 };
 

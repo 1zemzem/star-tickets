@@ -32,7 +32,7 @@ export default function LoginForm() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 12,
+            padding: 2,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

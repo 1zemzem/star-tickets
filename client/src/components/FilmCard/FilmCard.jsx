@@ -15,7 +15,7 @@ export default function FilmCard() {
     <Card sx={{ bgcolor: "#27272a" }}>
       <CardMedia
         component="img"
-        height="600"
+        maxHeight="600"
         image={img2}
         alt="green iguana"
       />

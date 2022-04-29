@@ -4,9 +4,8 @@ import Footer from "../components/Footer";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./App.css";
 import Navibar from "../components/Navibar";
-import ErrorBoundry from "../components/ErrorBoundry";
 
-const darkTheme = createTheme({
+export const darkTheme = createTheme({
   palette: {
     mode: "dark",
 
@@ -29,11 +28,9 @@ function App() {
   return (
     <>
       <ThemeProvider theme={darkTheme}>
-        <ErrorBoundry>
-          <Navibar />
-          <AppRouter />
-          <Footer />
-        </ErrorBoundry>
+        <Navibar />
+        <AppRouter />
+        <Footer />
       </ThemeProvider>
     </>
   );

@@ -1,11 +1,12 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { Paper } from "@mui/material";
+import { Container, Paper } from "@mui/material";
 
 const Footer = () => {
   return (
-    <Paper sx={{  p: 6, position: "fixed", bottom: 0, width: "100%" }} component="footer" >
+    <Paper sx={{ p: 2 }} component="footer" >
+      <Container maxWidth="lg">
       <Typography variant="h6" align="center" gutterBottom>
         Footer
       </Typography>
@@ -17,6 +18,7 @@ const Footer = () => {
       >
         Something here to give the footer a purpose!
       </Typography>
+      </Container>
     </Paper>
   );
 };

@@ -1,27 +1,39 @@
 import AdminPage from "./pages/AdminPage";
 import FilmPage from "./pages/FilmPage";
-import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
-import SeatsPage from "./pages/SeatsPage";
-import UserProfilePage from "./pages/UserProfilePage";
+import LoginPage from "./pages/LoginPage";
+import PaymentPage from "./pages/PaymentPage";
+import RegistrationPage from "./pages/RegistrationPage";
+import TicketsPage from "./pages/TicketsPage";
+import UserPage from "./pages/UserPage";
+
 import {
-  ADMIN_ROUTE,
-  FILM_ROUTE,
-  LOGIN_ROUTE,
   HOME_ROUTE,
-  PROFILE_ROUTE,
+  ADMIN_AUTH,
+  USER_AUTH,
+  LOGIN_ROUTE,
   REGISTR_ROUTE,
-  SEATS_ROUTE,
+  FILM_ROUTE,
+  TICKETS_AUTH,
+  PAYMENT_AUTH,
 } from "./utils/const";
 
 export const authRoutes = [
   {
-    path: ADMIN_ROUTE,
+    path: ADMIN_AUTH,
     Component: <AdminPage />,
   },
   {
-    path: PROFILE_ROUTE,
-    Component: <UserProfilePage />,
+    path: USER_AUTH,
+    Component: <UserPage />,
+  },
+  {
+    path: TICKETS_AUTH,
+    Component: <TicketsPage />,
+  },
+  {
+    path: PAYMENT_AUTH,
+    Component: <PaymentPage />,
   },
 ];
 
@@ -36,15 +48,11 @@ export const publicRoutes = [
     Component: <FilmPage />,
   },
   {
-    path: SEATS_ROUTE,
-    Component: <SeatsPage />,
+    path: REGISTR_ROUTE,
+    Component: <RegistrationPage />,
   },
   {
     path: LOGIN_ROUTE,
-    Component: <LoginPage />,
-  },
-  {
-    path: REGISTR_ROUTE,
     Component: <LoginPage />,
   },
 ];

@@ -1,10 +1,13 @@
+import { Container, Paper } from '@mui/material';
 import React from 'react';
 
 const AdminPage = () => {
     return (
-        <div>
+        <Paper sx={{ py: 12 }}>
+        <Container maxWidth="lg" >
             ADMIN
-        </div>
+        </Container>
+        </Paper>
     );
 };
 
