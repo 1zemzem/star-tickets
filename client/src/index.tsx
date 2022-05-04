@@ -8,15 +8,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 import { Provider } from "react-redux";
 
+console.log()
+
 ReactDOM.render(
-  <React.StrictMode>
+  
     <Provider store={store}>
       <ErrorBoundry>
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </ErrorBoundry> 
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  
   document.getElementById("root")
 );

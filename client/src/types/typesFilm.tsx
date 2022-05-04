@@ -1,42 +1,39 @@
 export interface IFilm {
-  film: [],
-  // title: string;
-  // img: File;
-  // description: string;
-  // age_limit: string;
-  // genre: string;
-  // info: string;
+  id: string;
+  title: string;
+  img: any;
+  description: string;
+  age_limit: string;
+  genre: string;
+  info: string;
 }
 
-export interface FilmState {
-  film: IFilm;
+export interface FilmsState {
+  list: IFilm[];
   isLoaded: boolean;
-  error: boolean;  
+  error: boolean;
 }
 
-export interface FilmAction {
+export interface FilmsAction {
   type: string;
   payload?: any;
 }
 
-export enum FilmActionTypes {
+export enum FilmsActionTypes {
   FETCH_DATA_BEGIN = "FETCH_DATA_BEGIN",
   FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS",
   FETCH_DATA_ERROR = "FETCH_DATA_ERROR",
 }
 interface FetchDataBegin {
-  type: FilmActionTypes.FETCH_DATA_BEGIN;
+  type: FilmsActionTypes.FETCH_DATA_BEGIN;
 }
 interface FetchDataSuccess {
-  type: FilmActionTypes.FETCH_DATA_SUCCESS;
+  type: FilmsActionTypes.FETCH_DATA_SUCCESS;
   payload: IFilm;
 }
 interface FetchDataError {
-  type: FilmActionTypes.FETCH_DATA_ERROR;
-  payload: boolean;
+  type: FilmsActionTypes.FETCH_DATA_ERROR;
+  payload: string;
 }
 
-export type FetchData =
-  | FetchDataBegin
-  | FetchDataSuccess
-  | FetchDataError;
+export type FetchData = FetchDataBegin | FetchDataSuccess | FetchDataError;

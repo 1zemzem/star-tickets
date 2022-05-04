@@ -7,17 +7,23 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import img2 from "../../images/carouselImg2.jpg";
+import { useAppDispatch } from '../../hooks/hooks';
+import { IFilm } from "../../types/typesFilm";
 
 
-export default function FilmCard() {
+
+const FilmCard
+ = () => {
+  
   
   return (
+
     <Card sx={{ bgcolor: "#27272a" }}>
       <CardMedia
         component="img"
         maxHeight="600"
         image={img2}
-        alt="green iguana"
+        // alt="green iguana"
       />
       <Container>
         <CardActions>
@@ -32,12 +38,13 @@ export default function FilmCard() {
         </CardActions>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" sx={{ mb: 4 }}>
-            Доктор Стрэндж: В Мультивселенной безумия
+           GGGGGGGGGGG
           </Typography>
           <Typography variant="h6" sx={{ mb: 2 }}>
             Премьера: 6 мая 2022
           </Typography>
           <Typography paragraph sx={{ mb: 2 }}>
+            
             В захватывающем дух блокбастере «Доктор Стрэндж: В Мультивселенной
             безумия» MARVEL открывает проход в Мультивселенную и как никогда
             далеко раздвигает границы возможного. Это шанс присоединиться к
@@ -50,4 +57,6 @@ export default function FilmCard() {
       </Container>
     </Card>
   );
-}
+};
+
+export default FilmCard;

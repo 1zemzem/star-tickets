@@ -1,13 +1,13 @@
 import * as React from "react";
 import HCarousel from "../../components/Carousel";
-import FilmList from "../../components/FilmList/FilmList";
+import FilmsList from "../../components/FilmsList/FilmsList";
 
 
 export default function HomePage() {
   return (
     <>
       <HCarousel />
-      <FilmList />
+      <FilmsList />
     </>
   );
 }
