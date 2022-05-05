@@ -8,8 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 import { Provider } from "react-redux";
 
-console.log()
-
 ReactDOM.render(
   
     <Provider store={store}>

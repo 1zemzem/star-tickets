@@ -1,10 +1,11 @@
 import axios from "axios";
 
+export const API_URL = 'http://localhost:5000';
 
 export const host = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: API_URL
 });
 
 export const authHost = axios.create({
-    baseURL: "http://localhost:5000" 
+    baseURL: API_URL 
 })

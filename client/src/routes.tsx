@@ -43,13 +43,12 @@ export const publicRoutes = [
     Component: <HomePage />,
   },
   {
-    // path: FILM_ROUTE + '/:id', не забыть!!!
-    path: FILM_ROUTE,
+    path: FILM_ROUTE + "/:id",
     Component: <FilmPage />,
   },
   {
     path: REGISTR_ROUTE,
-    Component: <RegistrationPage />,
+    Component: <LoginPage />,
   },
   {
     path: LOGIN_ROUTE,
