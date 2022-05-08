@@ -11,13 +11,16 @@ import Container from "@mui/material/Container";
 import { Box, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
-import { FilmsState } from "../../types/typesFilm";
+import { FilmsReduserState } from "../../types/typesFilm";
 import { fetchFilms } from "../../store/actionCreator/film";
 import Spinner from "../Spinner";
 import ErrorIndicator from "../ErrorIndicator";
-import { API_URL } from "../../service";
+import { API_URL_FILM } from "../../service";
 import { useNavigate } from "react-router-dom";
 import { FILM_ROUTE } from "../../utils/const";
+
+
+type Props = Partial<FilmsReduserState> ;
 
 const useStyles = makeStyles({
   cover: {
@@ -25,12 +28,16 @@ const useStyles = makeStyles({
   },
 });
 
-const FilmsList: React.FC = () => {
+const FilmsList = (props:Props) => {
+  
+  const { error, isLoaded, films} = props;
+  console.log(props);
   const styles = useStyles();
   const  navigate = useNavigate();
-  const { error, isLoaded, list } = useAppSelector((state) => state.films);
+  
   const dispatch = useAppDispatch();
 
+  // dispatch перенести в index.ts
   useEffect(() => {
     dispatch(fetchFilms());
   }, []);
@@ -47,7 +54,12 @@ const FilmsList: React.FC = () => {
 
   return (
     <Paper sx={{ py: 6 }}>
-      <Container maxWidth="lg">
+      {/* <div>{films?.map(item => (
+        <div>{item.title}</div>
+      ))}
+      </div> */}
+      
+      {/* <Container maxWidth="lg">
         <Grid
           container
           rowSpacing={8}
@@ -55,14 +67,14 @@ const FilmsList: React.FC = () => {
           px={4}
           justifyContent="center"
         >
-          {list.map((film) => (
+          {films?.map((film:any) => (
             <Grid
               item key={film.id}
               lg={3}
               md={4}
               sm={6}
               xs={12}
-              onClick={() => navigate(FILM_ROUTE + "/:id")}
+              // onClick={() => navigate(FILM_ROUTE + "/:id")}
             >
               <Card
                 sx={{
@@ -79,7 +91,7 @@ const FilmsList: React.FC = () => {
                   sx={{ mb: 4 }}
                   className={styles.cover}
                   component="img"
-                  image={API_URL + film.img}
+                  image={API_URL_FILM + film.img}
                   alt="img"
                 />
                 <Box
@@ -119,7 +131,7 @@ const FilmsList: React.FC = () => {
             </Grid>
           ))}
         </Grid>
-      </Container>
+      </Container> */}
     </Paper>
   );
 };

@@ -1,5 +1,5 @@
 export interface IFilm {
-  id: string;
+  id: number;
   title: string;
   img: string;
   description: string;
@@ -7,13 +7,16 @@ export interface IFilm {
   genre: string;
   info: string;
 }
-export interface FilmsState {
-  list: IFilm[];
+export interface FilmsReduserState {
+  films: IFilm[];
   isLoaded: boolean;
   error: boolean;
+  // searchByTime: number
 }
+
 export interface FilmsAction {
-  type: string;
+  type: FilmsActionTypes;
+  // payload:any
   payload?: any;
 }
 

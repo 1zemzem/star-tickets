@@ -11,6 +11,8 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { makeStyles } from "@mui/styles";
 import logo from "../../images/logo.svg";
+import { NavLink } from "react-router-dom";
+import { HOME_ROUTE, LOGIN_ROUTE } from "../../utils/const";
 
 
 const useStyles = makeStyles({
@@ -49,12 +51,13 @@ export default function Navibar() {
          >
       <Container maxWidth="lg" >
         <Toolbar disableGutters>
-          <Box
+        <NavLink to={HOME_ROUTE}><Box
             component="div"
-            sx={{ mr: 4, display: { xs: "none", md: "flex" } }}
+            sx={{ mr: 4, display: { xs: "none", md: "flex",  } }}
           >
             <img src={logo} alt="StarTickets" style={{ maxWidth: 160 }} />
-          </Box>
+          </Box></NavLink>
+          
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -95,7 +98,7 @@ export default function Navibar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            <img src={logo} alt="StarTickets" style={{ maxWidth: 160 }} />
+            <img src={logo} alt="StarTickets" style={{ maxWidth: 140 }} />
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
@@ -112,13 +115,14 @@ export default function Navibar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Button
+            <NavLink to={LOGIN_ROUTE}><Button
               color="secondary"
               variant="contained"
-              style={{ borderRadius: 20, marginRight: 20 }}
+              sx={{ borderRadius: 20 }}
             >
               войти
-            </Button>
+            </Button></NavLink>
+            
           </Box>
         </Toolbar>
       </Container>

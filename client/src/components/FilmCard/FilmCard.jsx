@@ -23,7 +23,7 @@ const FilmCard
         component="img"
         maxHeight="600"
         image={img2}
-        // alt="green iguana"
+        alt="img"
       />
       <Container>
         <CardActions>
