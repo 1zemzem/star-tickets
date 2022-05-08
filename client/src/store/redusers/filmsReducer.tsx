@@ -5,7 +5,7 @@ import {
 } from "../../types/typesFilm";
 
 export const initialState: FilmsReduserState = {
-  films: [],
+  filmsList: [],
   isLoaded: false,
   error: false,
   // searchByTime: number
@@ -31,7 +31,7 @@ export const filmsReduser = (
       return {
         ...state,
         isLoaded: false,
-        films: action.payload,
+        filmsList: action.payload,
         error: false,
       };
 

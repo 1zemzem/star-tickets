@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 import { FILM_ROUTE } from "../../utils/const";
 
 
-type Props = Partial<FilmsReduserState> ;
+type Props = Partial<FilmsReduserState> & {fetchFilms: Function} ;
 
 const useStyles = makeStyles({
   cover: {
@@ -30,8 +30,10 @@ const useStyles = makeStyles({
 
 const FilmsList = (props:Props) => {
   
-  const { error, isLoaded, films} = props;
+  const { error, isLoaded, filmsList, fetchFilms } = props;
   console.log(props);
+  
+  
   const styles = useStyles();
   const  navigate = useNavigate();
   
@@ -39,10 +41,10 @@ const FilmsList = (props:Props) => {
 
   // dispatch перенести в index.ts
   useEffect(() => {
-    dispatch(fetchFilms());
+    (fetchFilms());
   }, []);
 
-  
+  console.log(filmsList?.length);
 
   if (isLoaded) {
     return <Spinner />;

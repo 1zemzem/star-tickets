@@ -1,5 +1,5 @@
 import { authHost, host } from "../../service/index";
-import { FilmsActionTypes, FilmsAction, FetchData } from "../../types/typesFilm";
+import { FilmsActionTypes, FetchData } from "../../types/typesFilm";
 import { Dispatch } from "react";
 
 export const fetchFilms = () => {

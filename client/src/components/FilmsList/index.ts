@@ -7,7 +7,9 @@ import { FilmsReduserState } from "../../types/typesFilm";
 import FilmsList from "./FilmsList";
 
 const mapStateToProps = (state: FilmsReduserState): Partial<FilmsReduserState> => ({...state});
-const mapDispatchToProps = ({})
+const mapDispatchToProps = (dispatch:Dispatch<any> & ThunkDispatch<any, any, any>) => ({
+    fetchFilms: () => dispatch(fetchFilms())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilmsList);
 

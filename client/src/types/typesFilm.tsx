@@ -8,7 +8,7 @@ export interface IFilm {
   info: string;
 }
 export interface FilmsReduserState {
-  films: IFilm[];
+  filmsList: IFilm[];
   isLoaded: boolean;
   error: boolean;
   // searchByTime: number
