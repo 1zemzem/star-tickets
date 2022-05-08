@@ -7,6 +7,7 @@ export const store = configureStore({
     films: filmsReduser,
   },
   
+  
 });
 
 export type AppDispatch = typeof store.dispatch;

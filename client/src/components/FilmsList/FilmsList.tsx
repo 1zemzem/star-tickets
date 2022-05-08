@@ -19,8 +19,7 @@ import { API_URL_FILM } from "../../service";
 import { useNavigate } from "react-router-dom";
 import { FILM_ROUTE } from "../../utils/const";
 
-
-type Props = Partial<FilmsReduserState> & {fetchFilms: Function} ;
+type Props = Partial<FilmsReduserState> & { fetchFilms: Function };
 
 const useStyles = makeStyles({
   cover: {
@@ -28,23 +27,19 @@ const useStyles = makeStyles({
   },
 });
 
-const FilmsList = (props:Props) => {
-  
+const FilmsList = (props: Props) => {
   const { error, isLoaded, filmsList, fetchFilms } = props;
   console.log(props);
-  
-  
-  const styles = useStyles();
-  const  navigate = useNavigate();
-  
-  const dispatch = useAppDispatch();
 
-  // dispatch перенести в index.ts
+  const styles = useStyles();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    (fetchFilms());
+    fetchFilms();
   }, []);
 
-  console.log(filmsList?.length);
+  console.log(props.filmsList);
+  console.log();
 
   if (isLoaded) {
     return <Spinner />;
@@ -56,12 +51,7 @@ const FilmsList = (props:Props) => {
 
   return (
     <Paper sx={{ py: 6 }}>
-      {/* <div>{films?.map(item => (
-        <div>{item.title}</div>
-      ))}
-      </div> */}
-      
-      {/* <Container maxWidth="lg">
+      <Container maxWidth="lg">
         <Grid
           container
           rowSpacing={8}
@@ -69,14 +59,15 @@ const FilmsList = (props:Props) => {
           px={4}
           justifyContent="center"
         >
-          {films?.map((film:any) => (
+          {filmsList?.map((film: any) => (
             <Grid
-              item key={film.id}
+              item
+              key={film.id}
               lg={3}
               md={4}
               sm={6}
               xs={12}
-              // onClick={() => navigate(FILM_ROUTE + "/:id")}
+              onClick={() => navigate(FILM_ROUTE + "/:id")}
             >
               <Card
                 sx={{
@@ -133,7 +124,7 @@ const FilmsList = (props:Props) => {
             </Grid>
           ))}
         </Grid>
-      </Container> */}
+      </Container>
     </Paper>
   );
 };

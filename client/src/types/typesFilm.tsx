@@ -31,7 +31,7 @@ interface FetchDataBegin {
 }
 interface FetchDataSuccess {
   type: FilmsActionTypes.FETCH_DATA_SUCCESS;
-  payload: IFilm;
+  payload: IFilm[];
 }
 interface FetchDataError {
   type: FilmsActionTypes.FETCH_DATA_ERROR;
