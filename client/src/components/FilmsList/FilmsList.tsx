@@ -18,6 +18,7 @@ import ErrorIndicator from "../ErrorIndicator";
 import { API_URL_FILM } from "../../service";
 import { useNavigate } from "react-router-dom";
 import { FILM_ROUTE } from "../../utils/const";
+import FilmListItem from "../FilmListItem";
 
 type Props = Partial<FilmsReduserState> & { fetchFilms: Function };
 
@@ -39,15 +40,15 @@ const FilmsList = (props: Props) => {
   }, []);
 
   console.log(props);
-  // console.log(films?.filmsList);
+  console.log(filmsList);
 
-  // if (isLoaded) {
-  //   return <Spinner />;
-  // }
+  if (isLoaded) {
+    return <Spinner />;
+  }
 
-  // if (error) {
-  //   return <ErrorIndicator />;
-  // }
+  if (error) {
+    return <ErrorIndicator />;
+  }
 
   return (
     <Paper sx={{ py: 6 }}>
@@ -64,14 +65,14 @@ const FilmsList = (props: Props) => {
           // <div>{film.title}</div>
             <Grid
               item
-              key={film.id}
               lg={3}
               md={4}
               sm={6}
               xs={12}
-              onClick={() => navigate(FILM_ROUTE + "/:id")}
+              
             >
-              <Card
+              <FilmListItem {...film} key={film.id}/>
+              {/* <Card
                 sx={{
                   height: "100%",
                   display: "flex",
@@ -122,7 +123,7 @@ const FilmsList = (props: Props) => {
                     <Button>Купить</Button>
                   </CardActions>
                 </Box>
-              </Card>
+              </Card> */}
             </Grid>
           ))}
         </Grid>

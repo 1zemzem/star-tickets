@@ -7,23 +7,22 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import img2 from "../../images/carouselImg2.jpg";
-import { useAppDispatch } from '../../hooks/hooks';
-import { IFilm } from "../../types/typesFilm";
+import { useAppDispatch } from "../../hooks/hooks";
+import { FilmsReduserState, IFilm } from "../../types/typesFilm";
+import { useNavigate } from "react-router-dom";
+import { FILM_ROUTE } from "../../utils/const";
 
 
 
-const FilmCard
- = () => {
-  
-  
+const FilmCard = () => {
   return (
-
     <Card sx={{ bgcolor: "#27272a" }}>
+      
       <CardMedia
-        component="img"
-        maxHeight="600"
-        image={img2}
-        alt="img"
+
+      // maxHeight="600"
+      // image={img2}
+      // alt="img"
       />
       <Container>
         <CardActions>
@@ -38,20 +37,18 @@ const FilmCard
         </CardActions>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" sx={{ mb: 4 }}>
-           GGGGGGGGGGG
+            {/* {title} */}
+            njnjkanfjka
           </Typography>
           <Typography variant="h6" sx={{ mb: 2 }}>
             Премьера: 6 мая 2022
           </Typography>
           <Typography paragraph sx={{ mb: 2 }}>
-            
-            В захватывающем дух блокбастере «Доктор Стрэндж: В Мультивселенной
-            безумия» MARVEL открывает проход в Мультивселенную и как никогда
-            далеко раздвигает границы возможного. Это шанс присоединиться к
-            путешествию в неведомое - вместе с Доктором Стрэнджем и его
-            магическими союзниками, которым предстоит посетить невероятные и
-            опасные измерения для того, чтобы сразиться с новым загадочным
-            противником.
+            {/* {description} */}
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis
+            totam doloremque labore ratione ea suscipit iusto consequuntur autem
+            eius delectus, vitae doloribus est obcaecati provident porro
+            laborum, quod enim recusandae.
           </Typography>
         </CardContent>
       </Container>
