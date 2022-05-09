@@ -5,6 +5,7 @@ import {
 } from "../../types/typesFilm";
 
 export const initialState: FilmsReduserState = {
+  
   filmsList: [],
   isLoaded: false,
   error: false,
@@ -15,6 +16,8 @@ export const filmsReduser = (
   state = initialState,
   action: FilmsAction
 ): FilmsReduserState => {
+  console.log(action.type, action.payload);
+  
   switch (action.type) {
     case FilmsActionTypes.FETCH_DATA_BEGIN:
       return {

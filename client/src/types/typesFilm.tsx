@@ -14,6 +14,10 @@ export interface FilmsReduserState {
   // searchByTime: number
 }
 
+export interface IStore {
+  films: FilmsReduserState;
+}
+
 export interface FilmsAction {
   type: FilmsActionTypes;
   // payload:any

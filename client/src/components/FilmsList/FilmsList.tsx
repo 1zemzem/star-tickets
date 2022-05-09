@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 });
 
 const FilmsList = (props: Props) => {
-  const { error, isLoaded, filmsList, fetchFilms } = props;
+  const { filmsList, fetchFilms, error, isLoaded } = props;
   console.log(props);
 
   const styles = useStyles();
@@ -38,19 +38,20 @@ const FilmsList = (props: Props) => {
     fetchFilms();
   }, []);
 
-  console.log(props.filmsList);
-  console.log();
+  console.log(props);
+  // console.log(films?.filmsList);
 
-  if (isLoaded) {
-    return <Spinner />;
-  }
+  // if (isLoaded) {
+  //   return <Spinner />;
+  // }
 
-  if (error) {
-    return <ErrorIndicator />;
-  }
+  // if (error) {
+  //   return <ErrorIndicator />;
+  // }
 
   return (
     <Paper sx={{ py: 6 }}>
+
       <Container maxWidth="lg">
         <Grid
           container
@@ -60,6 +61,7 @@ const FilmsList = (props: Props) => {
           justifyContent="center"
         >
           {filmsList?.map((film: any) => (
+          // <div>{film.title}</div>
             <Grid
               item
               key={film.id}

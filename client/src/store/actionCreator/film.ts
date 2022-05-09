@@ -11,6 +11,8 @@ export const fetchFilms = () => {
         type: FilmsActionTypes.FETCH_DATA_SUCCESS,
         payload: response.data,
       });
+      console.log(response.data);
+      
     } catch (error) {
       dispatch({
         type: FilmsActionTypes.FETCH_DATA_ERROR,
