@@ -5,9 +5,7 @@ const User = sequelize.define("user", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   email: { type: DataTypes.STRING, unique: true },
   password: { type: DataTypes.STRING },
-  role: { type: DataTypes.STRING, defaultValue: "USER" },
-  name: { type: DataTypes.STRING },
-  phone_number: { type: DataTypes.INTEGER, unique: true },
+  role: { type: DataTypes.STRING, defaultValue: "NEW_USER" },
 });
 
 const Tickets = sequelize.define("tickets", {
@@ -21,7 +19,7 @@ const Film = sequelize.define("film", {
   title: { type: DataTypes.STRING, allowNull: false },
   img: { type: DataTypes.STRING, allowNull: false },
   description: { type: DataTypes.STRING, allowNull: false },
-  info: { type: DataTypes.STRING, allowNull: false},
+  info: { type: DataTypes.STRING, allowNull: false },
   genre: { type: DataTypes.STRING, allowNull: false },
   age_limit: { type: DataTypes.STRING, allowNull: false },
 });
