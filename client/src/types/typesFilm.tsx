@@ -19,7 +19,7 @@ export interface IStore {
 }
 
 export interface FilmsAction {
-  type: FilmsActionTypes;  
+  type: FilmsActionTypes;
   payload?: any;
 }
 

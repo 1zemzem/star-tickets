@@ -2,9 +2,11 @@ import {
   Box,
   Button,
   Card,
+  CardActionArea,
   CardActions,
   CardContent,
   CardMedia,
+  Grid,
   Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -39,43 +41,47 @@ const FilmListItem = (props: Props) => {
         mr: 0,
         mb: 8,
       }}
-      onClick={() => navigate(FILM_ROUTE + '/' + id)}
     >
-      <CardMedia
-        sx={{ mb: 4 }}
-        //   className={styles.cover}
-        component="img"
-        src={API_URL_FILM + img}
-        alt="img"
-      />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <CardContent sx={{ flexGrow: 1 }}>
-          <Typography sx={{ mb: 4 }}>{age_limit}</Typography>
-          <Typography gutterBottom variant="h5" component="h2" sx={{ mb: 4 }}>
-            {title}
-          </Typography>
-          <Typography>{genre}</Typography>
-        </CardContent>
-
-        <CardActions
+      <CardActionArea onClick={() => navigate(FILM_ROUTE + "/" + id)}>
+        <CardMedia
+          sx={{ mb: 4 }}
+          //   className={styles.cover}
+          component="img"
+          src={API_URL_FILM + img}
+          alt="img"
+        />
+        <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
-          <Button variant="outlined" sx={{ mb: 4 }}>
-            Time
-          </Button>
-          <Button>Купить</Button>
-        </CardActions>
-      </Box>
+          <CardContent sx={{ flexGrow: 1 }}>
+            <Typography sx={{ mb: 4 }}>{age_limit}</Typography>
+            <Typography gutterBottom variant="h5" component="h2" sx={{ mb: 4 }}>
+              {title}
+            </Typography>
+            <Typography>{genre}</Typography>
+          </CardContent>
+
+          <CardActions
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              variant="outlined"
+              color="secondary"
+              sx={{ borderRadius: 20 }}
+            >
+              Купить
+            </Button>
+          </CardActions>
+        </Box>
+      </CardActionArea>
     </Card>
   );
 };

@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 
 const FilmsList = (props: Props) => {
   const { filmsList, fetchFilms, error, isLoaded } = props;
-  console.log(props);
+  // console.log(props);
 
   const styles = useStyles();
   const navigate = useNavigate();
@@ -39,8 +39,8 @@ const FilmsList = (props: Props) => {
     fetchFilms();
   }, []);
 
-  console.log(props);
-  console.log(filmsList);
+  // console.log(props);
+  // console.log(filmsList);
 
   if (isLoaded) {
     return <Spinner />;
@@ -52,7 +52,6 @@ const FilmsList = (props: Props) => {
 
   return (
     <Paper sx={{ py: 6 }}>
-
       <Container maxWidth="lg">
         <Grid
           container
@@ -62,68 +61,9 @@ const FilmsList = (props: Props) => {
           justifyContent="center"
         >
           {filmsList?.map((film: any) => (
-          // <div>{film.title}</div>
-            <Grid
-              item
-              lg={3}
-              md={4}
-              sm={6}
-              xs={12}
-              
-            >
-              <FilmListItem {...film} key={film.id}/>
-              {/* <Card
-                sx={{
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  border: "none",
-                  boxShadow: "none",
-                  mr: 0,
-                  mb: 8,
-                }}
-              >
-                <CardMedia
-                  sx={{ mb: 4 }}
-                  className={styles.cover}
-                  component="img"
-                  image={API_URL_FILM + film.img}
-                  alt="img"
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography sx={{ mb: 4 }}>{film.age_limit}</Typography>
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="h2"
-                      sx={{ mb: 4 }}
-                    >
-                      {film.title}
-                    </Typography>
-                    <Typography>{film.genre}</Typography>
-                  </CardContent>
-
-                  <CardActions
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Button variant="outlined" sx={{ mb: 4 }}>
-                      Time
-                    </Button>
-                    <Button>Купить</Button>
-                  </CardActions>
-                </Box>
-              </Card> */}
+            // <div>{film.title}</div>
+            <Grid item lg={3} md={4} sm={6} xs={12}>
+              <FilmListItem {...film} key={film.id} />
             </Grid>
           ))}
         </Grid>

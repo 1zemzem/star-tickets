@@ -1,3 +1,3 @@
 import FilmCard from "./FilmCard";
 
-expord default FilmCard;
+export default FilmCard;

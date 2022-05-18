@@ -14,22 +14,18 @@ import logo from "../../images/logo.svg";
 import { NavLink } from "react-router-dom";
 import { HOME_ROUTE, LOGIN_ROUTE } from "../../utils/const";
 
-
 const useStyles = makeStyles({
   components: {
     MuiAppBar: {
       "&:hover": {
         backgroundColor: "#a9a6a6",
-    }  
-         
+      },
+    },
   },
-}
 });
 const pages = ["Афиша", "Инфо", "Мой профиль"];
 
-
 export default function Navibar() {
-
   const styles = useStyles();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -44,20 +40,18 @@ export default function Navibar() {
     setAnchorElNav(null);
   };
 
-   return (
-    <AppBar
-      position="fixed" color='transparent'
-      className={styles.components}      
-         >
-      <Container maxWidth="lg" >
+  return (
+    <AppBar position="fixed" color="transparent" className={styles.components}>
+      <Container maxWidth="lg">
         <Toolbar disableGutters>
-        <NavLink to={HOME_ROUTE}><Box
-            component="div"
-            sx={{ mr: 4, display: { xs: "none", md: "flex",  } }}
-          >
-            <img src={logo} alt="StarTickets" style={{ maxWidth: 160 }} />
-          </Box></NavLink>
-          
+          <NavLink to={HOME_ROUTE}>
+            <Box
+              component="div"
+              sx={{ mr: 4, display: { xs: "none", md: "flex" } }}
+            >
+              <img src={logo} alt="StarTickets" style={{ maxWidth: 160 }} />
+            </Box>
+          </NavLink>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -89,21 +83,25 @@ export default function Navibar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" >{page}</Typography>
+                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+
           <Box
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            <img src={logo} alt="StarTickets" style={{ maxWidth: 140 }} />
+            <NavLink to={HOME_ROUTE}>
+              <img src={logo} alt="StarTickets" style={{ maxWidth: 140 }} />
+            </NavLink>
           </Box>
+
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-              size="large"
+                size="large"
                 variant="text"
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -115,14 +113,15 @@ export default function Navibar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <NavLink to={LOGIN_ROUTE}><Button
-              color="secondary"
-              variant="contained"
-              sx={{ borderRadius: 20 }}
-            >
-              войти
-            </Button></NavLink>
-            
+            <NavLink to={LOGIN_ROUTE}>
+              <Button
+                color="secondary"
+                variant="contained"
+                sx={{ borderRadius: 20 }}
+              >
+                войти
+              </Button>
+            </NavLink>
           </Box>
         </Toolbar>
       </Container>

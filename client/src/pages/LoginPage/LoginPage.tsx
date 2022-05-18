@@ -4,7 +4,7 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 
 const LoginPage = () => {
   return (
-    <Paper sx={{ py: 12 }}>
+    <Paper sx={{ py: 8 }}>
       <LoginForm />
     </Paper>
   );
