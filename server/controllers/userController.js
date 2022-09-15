@@ -11,26 +11,31 @@ const generateJwt = (id, email, role) => {
 
 class UserController {
   async registration(req, res, next) {
-    const { email, password, role } = req.body;
-    if (!email) {
-      return next(ApiError.badRequest("Некорректный email"));
+    try {
+      console.log(req)
+      const { email, password, role } = req.body;
+      if (!email) {
+        return next(ApiError.badRequest("Некорректный email"));
+      }
+      if (!password) {
+        return next(ApiError.badRequest("Некорректный пароль"));
+      }
+      const newUser = await User.findOne({ where: { email } });
+      if (newUser) {
+        return next(
+          ApiError.badRequest("Пользователь с таким email уже существует")
+        );
+      }
+      const hashPassword = await bcrypt.hash(password, 5);
+      const user = await User.create({ email, role, password: hashPassword });
+      // const tickets = await Tickets.create({ userId: user.id });
+      // const dates = await Dates.create({ userId: user.id });
+      // const film = await Film.create({ userId: user.id });
+      const token = generateJwt(user.id, user.email, user.role);
+      return res.json({ token });
+    } catch (error) {
+      next(ApiError.badRequest(error.message));
     }
-    if (!password) {
-      return next(ApiError.badRequest("Некорректный пароль"));
-    }
-    const newUser = await User.findOne({ where: { email } });
-    if (newUser) {
-      return next(
-        ApiError.badRequest("Пользователь с таким email уже существует")
-      );
-    }
-    const hashPassword = await bcrypt.hash(password, 5);
-    const user = await User.create({ email, role, password: hashPassword });
-    const tickets = await Tickets.create({ userId: user.id });
-    const dates = await Dates.create({ userId: user.id });
-    const film = await Film.create({ userId: user.id });
-    const token = generateJwt(user.id, user.email, user.role);
-    return res.json({ token });
   }
 
   async login(req, res, next) {

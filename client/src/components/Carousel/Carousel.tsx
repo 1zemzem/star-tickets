@@ -5,6 +5,7 @@ import img3 from "../../images/carouselImg3.jpg";
 import { Button, Carousel } from "react-bootstrap";
 import "./Carousel.css";
 
+
 const HCarousel = () => {
   return (
     <Carousel>
@@ -21,6 +22,7 @@ const HCarousel = () => {
               variant="outline-light"
               size="lg"
               className="button-round rounded-pill"
+              
             >
               КУПИТЬ БИЛЕТ
             </Button>

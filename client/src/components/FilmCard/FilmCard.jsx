@@ -26,7 +26,7 @@ const FilmCard = () => {
 
   return (
     <Card sx={{ bgcolor: "#27272a" }}>
-      <CardMedia component="img" image={film.img} alt="img" height="400" />
+      <CardMedia component="img" img={film.img} alt="img" height="400" />
       <Container>
         <CardActions>
           <Button
@@ -37,6 +37,7 @@ const FilmCard = () => {
           >
             Купить билет
           </Button>
+          <img src={`/${film.img}`} />
         </CardActions>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" sx={{ mb: 4 }}>

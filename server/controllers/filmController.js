@@ -26,7 +26,7 @@ class FilmController {
   }
 
   async getAll(req, res, next) {
-    try {
+    try {      
       const films = await Film.findAll();
       return res.status(200).json(films);
     } catch (error) {

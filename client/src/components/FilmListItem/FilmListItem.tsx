@@ -47,7 +47,7 @@ const FilmListItem = (props: Props) => {
           sx={{ mb: 4 }}
           //   className={styles.cover}
           component="img"
-          src={API_URL_FILM + img}
+          src={`/${img}`}
           alt="img"
         />
         <Box
@@ -82,7 +82,11 @@ const FilmListItem = (props: Props) => {
           </CardActions>
         </Box>
       </CardActionArea>
-    </Card>
+      <img src={`/${img}`} />
+      
+      
+    </Card>    
+    
   );
 };
 

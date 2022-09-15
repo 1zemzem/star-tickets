@@ -14,7 +14,7 @@ import {
   LOGIN_ROUTE,
   REGISTR_ROUTE,
   FILM_ROUTE,
-  TICKETS_AUTH,
+  TICKETS,
   PAYMENT_AUTH,
 } from "./utils/const";
 
@@ -27,10 +27,7 @@ export const authRoutes = [
     path: USER_AUTH,
     Component: <UserPage />,
   },
-  {
-    path: TICKETS_AUTH,
-    Component: <TicketsPage />,
-  },
+
   {
     path: PAYMENT_AUTH,
     Component: <PaymentPage />,
@@ -45,6 +42,10 @@ export const publicRoutes = [
   {
     path: FILM_ROUTE + "/:id",
     Component: <FilmPage />,
+  },
+  {
+    path: TICKETS,
+    Component: <TicketsPage />,
   },
   {
     path: REGISTR_ROUTE,
