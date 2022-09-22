@@ -16,6 +16,7 @@ import {
   FILM_ROUTE,
   TICKETS,
   PAYMENT_AUTH,
+  // STATIC,
 } from "./utils/const";
 
 export const authRoutes = [

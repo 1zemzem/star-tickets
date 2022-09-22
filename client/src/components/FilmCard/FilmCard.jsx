@@ -26,46 +26,61 @@ const FilmCard = () => {
 
   return (
     <Card sx={{ bgcolor: "#27272a" }}>
-      <CardMedia component="img" img={film.img} alt="img" height="400" />
-      <Container>
-        <CardActions>
-          <Button
-            size="large"
-            variant="contained"
-            color="secondary"
-            sx={{ borderRadius: 20, my: 2 }}
-          >
-            Купить билет
-          </Button>
-          <img src={`/${film.img}`} />
-        </CardActions>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div" sx={{ mb: 4 }}>
-            {film.title}
-          </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <CardMedia
+            component="img"
+            src={`/${film.img}`}
+            alt="img"
+            height={480}
+          />
+        </Grid>
+        <Grid item xs={8}>
+          <Container>
+            {/* <CardActions>
+              <Button
+                size="large"
+                variant="contained"
+                color="secondary"
+                sx={{ borderRadius: 20, my: 2 }}
+              >
+                Купить билет
+              </Button>
+            </CardActions> */}
+            <CardContent>
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                sx={{ mb: 4 }}
+              >
+                {film.title}
+              </Typography>
 
-          <Typography paragraph sx={{ mb: 2 }}>
-            {film.info}
-          </Typography>
-          <Grid container spacing={2}>
-            <Grid item>
-              <Button variant="outlined" sx={{ mb: 4 }}>
-                Time
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button variant="outlined" sx={{ mb: 4 }}>
-                Time
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button variant="outlined" sx={{ mb: 4 }}>
-                Time
-              </Button>
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Container>
+              <Typography paragraph sx={{ mb: 2 }}>
+                {film.info}
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item>
+                  <Button variant="outlined" sx={{ mb: 4 }}>
+                    Time
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button variant="outlined" sx={{ mb: 4 }}>
+                    Time
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button variant="outlined" sx={{ mb: 4 }}>
+                    Time
+                  </Button>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Container>
+        </Grid>
+      </Grid>
     </Card>
   );
 };

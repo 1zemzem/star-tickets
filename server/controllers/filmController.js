@@ -9,7 +9,7 @@ class FilmController {
       const { title, description, genre, age_limit, info } = req.body;
       const { img } = req.files;
       let fileName = uuid.v4() + ".jpg";
-      img.mv(path.resolve(__dirname, "..", "static", fileName));
+      img.mv(path.resolve(__dirname, '..', 'client','public', 'images'));
 
       const film = await Film.create({
         title,
@@ -49,7 +49,7 @@ class FilmController {
       const { title, description, genre, age_limit, info } = req.body;
       const { img } = req.files;
       let fileName = uuid.v4() + ".jpg";
-      img.mv(path.resolve(__dirname, "..", "static", fileName));
+      img.mv(path.resolve(__dirname, '..', 'client','public', 'images'));
 
       const film = await Film.update(
         { title, description, genre, age_limit, img: fileName, info },

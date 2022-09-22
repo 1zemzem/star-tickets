@@ -28,9 +28,9 @@ class UserController {
       }
       const hashPassword = await bcrypt.hash(password, 5);
       const user = await User.create({ email, role, password: hashPassword });
-      // const tickets = await Tickets.create({ userId: user.id });
-      // const dates = await Dates.create({ userId: user.id });
-      // const film = await Film.create({ userId: user.id });
+      const tickets = await Tickets.create({ userId: user.id });
+      const dates = await Dates.create({ userId: user.id });
+      const film = await Film.create({ userId: user.id });
       const token = generateJwt(user.id, user.email, user.role);
       return res.json({ token });
     } catch (error) {

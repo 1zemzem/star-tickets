@@ -49,6 +49,7 @@ const FilmListItem = (props: Props) => {
           component="img"
           src={`/${img}`}
           alt="img"
+          height={400}
         />
         <Box
           sx={{
@@ -82,11 +83,7 @@ const FilmListItem = (props: Props) => {
           </CardActions>
         </Box>
       </CardActionArea>
-      <img src={`/${img}`} />
-      
-      
-    </Card>    
-    
+    </Card>
   );
 };
 
