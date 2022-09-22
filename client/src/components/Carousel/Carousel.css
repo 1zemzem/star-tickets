@@ -1,0 +1,37 @@
+.background-half-dark {    
+    background-color: linear-gradient(225deg, rgb(247, 251, 250) 35%, rgb(5, 6, 6));
+    z-index: 2;
+}
+
+.button-round {
+    border-radius: 30px;   
+    border: 5px solid;    
+    max-width: 200px;
+    width: 100%;
+    font: 16px Roboto;
+    font-weight: 600;   
+}
+
+@media(min-width: 576px) {
+    .button-round {
+        max-width: 300px;
+    }
+}
+
+@media(min-width: 768px) {
+    .button-round {
+        max-width: 400px;
+    }
+}
+
+@media(min-width: 992px) {
+    .button-round {
+        max-width: 500px;
+    }
+}
+
+@media(min-width: 1200px) {
+    .button-round {
+        max-width: 600px;
+    }
+}

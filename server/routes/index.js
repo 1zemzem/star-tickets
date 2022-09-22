@@ -1,17 +1,18 @@
 const Router = require("express");
 const router = new Router();
-const seatRouter = require("./seatRouter");
-const filmRouter = require("./filmRouter");
-const dayRouter = require("./dayRouter");
-const calendarRouter = require("./calendarRouter");
 const userRouter = require("./userRouter");
-const profileRouter = require("./profileRouter");
+const ticketsRouter = require("./ticketsRouter");
+const filmRouter = require("./filmRouter");
+const datesRouter = require("./datesRouter");
+const ratingRouter = require("./ratingRouter");
 
+router.use(Router.json());
+router.use(Router.urlencoded({ extended: true }));
+// router.use("/static", Router.static(__dirname + '/static'));
 router.use("/user", userRouter);
-router.use("/profile", profileRouter);
-router.use("/seat", seatRouter);
+router.use("/tickets", ticketsRouter);
 router.use("/film", filmRouter);
-router.use("/day", dayRouter);
-router.use("/calendar", calendarRouter);
+router.use("/dates", datesRouter);
+router.use("/rating", ratingRouter);
 
 module.exports = router;
