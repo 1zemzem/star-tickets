@@ -1,11 +1,11 @@
 const ApiError = require("../error/ApiError");
-const { Dates } = require("../models/models");
+const { FilmSessions } = require("../models/models");
 
-class DatesController {
+class FilmSessionsController {
     async create(req, res, next) {
       try {
         const { datetime } = req.body;
-        const dateTime = await Dates.create({ datetime });
+        const dateTime = await FilmSessions.create({ datetime });
         return res.status(200).json(dateTime);
       } catch (error) {
         next(ApiError.badRequest(error.message));
@@ -14,8 +14,8 @@ class DatesController {
 
   async getAll(req, res, next) {
     try {
-      const dates = await Dates.findAll();
-    return res.status(200).json(dates)
+      const dateTimes = await FilmSessions.findAll();
+    return res.status(200).json(dateTimes)
     } catch (error) {
       next(ApiError.badRequest(error.message));
     }
@@ -25,7 +25,7 @@ class DatesController {
   async getOne(req, res, next) {
     try {
       const { id } = req.params;
-      const dateTime = await Dates.findOne({ where: { id } });
+      const dateTime = await FilmSessions.findOne({ where: { id } });
       return res.status(200).json(dateTime);
     } catch (error) {
       next(ApiError.badRequest(error.message));
@@ -35,7 +35,7 @@ class DatesController {
   async updateOne(req, res, next) {
     try {
       const { datetime } = req.body;
-      const dateTime = await Dates.update({ datetime }, { where: { id: req.params.id } });
+      const dateTime = await FilmSessions.update({ datetime }, { where: { id: req.params.id } });
       return res.status(200).json(dateTime);
     } catch (error) {
       next(ApiError.badRequest(error.message));
@@ -44,7 +44,7 @@ class DatesController {
 
   async deleteOne(req, res, next) {
     try {
-      const dateTime = await Dates.destroy({ where: { id: req.params.id } });
+      const dateTime = await FilmSessions.destroy({ where: { id: req.params.id } });
       return res.status(200).json(dateTime);
     } catch (error) {
       next(ApiError.badRequest(error.message));
@@ -52,4 +52,5 @@ class DatesController {
   }
 }
 
-module.exports = new DatesController();
+module.exports = new FilmSessionsController();
+

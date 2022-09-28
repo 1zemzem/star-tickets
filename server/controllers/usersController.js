@@ -1,7 +1,7 @@
 const ApiError = require("../error/ApiError");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { User, Tickets, Film, Dates } = require("../models/models");
+const { Users, Tickets, Films, FilmSessions } = require("../models/models");
 
 const generateJwt = (id, email, role) => {
   return jwt.sign({ id, email, role }, process.env.SECRET_KEY, {
@@ -9,7 +9,7 @@ const generateJwt = (id, email, role) => {
   });
 };
 
-class UserController {
+class UsersController {
   async registration(req, res, next) {
     try {
       console.log(req)
@@ -20,7 +20,7 @@ class UserController {
       if (!password) {
         return next(ApiError.badRequest("Некорректный пароль"));
       }
-      const newUser = await User.findOne({ where: { email } });
+      const newUser = await Users.findOne({ where: { email } });
       if (newUser) {
         return next(
           ApiError.badRequest("Пользователь с таким email уже существует")
@@ -29,8 +29,8 @@ class UserController {
       const hashPassword = await bcrypt.hash(password, 5);
       const user = await User.create({ email, role, password: hashPassword });
       const tickets = await Tickets.create({ userId: user.id });
-      const dates = await Dates.create({ userId: user.id });
-      const film = await Film.create({ userId: user.id });
+      const dates = await FilmSessions.create({ userId: user.id });
+      const films = await Films.create({ userId: user.id });
       const token = generateJwt(user.id, user.email, user.role);
       return res.json({ token });
     } catch (error) {
@@ -40,7 +40,7 @@ class UserController {
 
   async login(req, res, next) {
     const { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
+    const user = await Users.findOne({ where: { email } });
     if (!user) {
       return next(ApiError.badRequest("Пользователь не найден"));
     }
@@ -58,4 +58,4 @@ class UserController {
   }
 }
 
-module.exports = new UserController();
+module.exports = new UsersController();

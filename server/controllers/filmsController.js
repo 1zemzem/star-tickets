@@ -1,17 +1,17 @@
 const ApiError = require("../error/ApiError");
 const uuid = require("uuid");
 const path = require("path");
-const { Film } = require("../models/models");
+const { Films } = require("../models/models");
 
-class FilmController {
+class FilmsController {
   async create(req, res, next) {
     try {
       const { title, description, genre, age_limit, info } = req.body;
       const { img } = req.files;
       let fileName = uuid.v4() + ".jpg";
-      img.mv(path.resolve(__dirname, '..', 'client','public', 'images'));
+      img.mv(path.resolve(__dirname, '..', 'server','static'));
 
-      const film = await Film.create({
+      const film = await Films.create({
         title,
         img: fileName,
         description,
@@ -27,7 +27,7 @@ class FilmController {
 
   async getAll(req, res, next) {
     try {      
-      const films = await Film.findAll();
+      const films = await Films.findAll();
       return res.status(200).json(films);
     } catch (error) {
       next(ApiError.badRequest(error.message));
@@ -37,7 +37,7 @@ class FilmController {
   async getOne(req, res, next) {
     try {
       const { id } = req.params;
-      const film = await Film.findOne({ where: { id } });
+      const film = await Films.findOne({ where: { id } });
       return res.status(200).json(film);
     } catch (error) {
       next(ApiError.badRequest(error.message));
@@ -49,9 +49,9 @@ class FilmController {
       const { title, description, genre, age_limit, info } = req.body;
       const { img } = req.files;
       let fileName = uuid.v4() + ".jpg";
-      img.mv(path.resolve(__dirname, '..', 'client','public', 'images'));
+      img.mv(path.resolve(__dirname, '..', 'server','static'));
 
-      const film = await Film.update(
+      const film = await Films.update(
         { title, description, genre, age_limit, img: fileName, info },
         { where: { id: req.params.id } }
       );
@@ -63,7 +63,7 @@ class FilmController {
 
   async deleteOne(req, res, next) {
     try {
-      const film = await Film.destroy({ where: { id: req.params.id } });
+      const film = await Films.destroy({ where: { id: req.params.id } });
       return res.status(200).json(film);
     } catch (error) {
       next(ApiError.badRequest(error.message));
@@ -71,4 +71,4 @@ class FilmController {
   }
 }
 
-module.exports = new FilmController();
+module.exports = new FilmsController();

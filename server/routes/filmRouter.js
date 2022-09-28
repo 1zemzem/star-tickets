@@ -1,16 +1,16 @@
 const Router = require("express");
 const router = new Router();
-const filmController = require("../controllers/filmController");
+const filmsController = require("../controllers/filmsController");
 const checkRole = require("../middleware/checkRoleMiddleware");
 
 router.post("/",
 //  checkRole("ADMIN"), 
- filmController.create);
-router.get("/", filmController.getAll);
-router.get("/:id", filmController.getOne);
-router.put("/:id",
+ filmsController.create);
+router.get("/", filmsController.getAll);
+router.get("/:id", filmsController.getOne);
+router.patch("/:id",
 // checkRole("ADMIN"), 
-filmController.updateOne);
-router.delete("/:id", checkRole("ADMIN"), filmController.deleteOne);
+filmsController.updateOne);
+router.delete("/:id", checkRole("ADMIN"), filmsController.deleteOne);
 
 module.exports = router;
