@@ -4,7 +4,7 @@
 	nodeJS
 	React/Redux
 	MaterialUI
-	Страницы
+	Страницы:
 	Single Page Application
 	Клиентская валидация
 
