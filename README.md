@@ -1,12 +1,12 @@
 # star-tickets
 Приложение онлайн-покупки билетов в кинотеатр.
-•	Стек технологий:
-o	nodeJS
-o	React/Redux
-o	MaterialUI
-•	Страницы
-o	Single Page Application
-o	Клиентская валидация
+	Стек технологий:
+	nodeJS
+	React/Redux
+	MaterialUI
+	Страницы
+	Single Page Application
+	Клиентская валидация
 
 # npm run dev - запуск сервера 
 http://localhost:5000/
