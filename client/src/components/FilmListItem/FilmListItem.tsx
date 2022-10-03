@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Button,
@@ -10,24 +11,22 @@ import {
   Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React from "react";
 import { IFilm } from "../../types/typesFilm";
-import { API_URL_FILM } from "../../service";
+import { API_URL } from "../../service/index";
 import { useNavigate } from "react-router-dom";
 import { FILM_ROUTE } from "../../utils/const";
-
-const useStyles = makeStyles({
-  cover: {
-    borderRadius: "2rem",
-  },
-});
 
 type Props = IFilm;
 
 const FilmListItem = (props: Props) => {
   const { id, title, info, genre, age_limit, img, description } = props;
 
-  const styles = useStyles();
+  // const useStyles = makeStyles({
+  //   cover: {
+  //     borderRadius: "2rem",
+  //   },
+  // });
+  // const styles = useStyles();
   const navigate = useNavigate();
 
   return (
@@ -47,7 +46,7 @@ const FilmListItem = (props: Props) => {
           sx={{ mb: 4 }}
           //   className={styles.cover}
           component="img"
-          src={`/${img}`}
+          src={API_URL + "/" +  img}
           alt="img"
           height={400}
         />

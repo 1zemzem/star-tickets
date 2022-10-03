@@ -6,10 +6,10 @@ const { Films } = require("../models/models");
 class FilmsController {
   async create(req, res, next) {
     try {
-      const { title, description, genre, age_limit, info } = req.body;
+      const { title, description, genre, age_limit, info, price } = req.body;
       const { img } = req.files;
       let fileName = uuid.v4() + ".jpg";
-      img.mv(path.resolve(__dirname, '..', 'server','static'));
+      img.mv(path.resolve(__dirname, '..', 'static', fileName));
 
       const film = await Films.create({
         title,
@@ -17,7 +17,8 @@ class FilmsController {
         description,
         genre,
         age_limit,
-        info
+        info,
+        price
       });
       return res.status(200).json(film);
     } catch (error) {
@@ -46,13 +47,13 @@ class FilmsController {
 
   async updateOne(req, res, next) {
     try {
-      const { title, description, genre, age_limit, info } = req.body;
+      const { title, description, genre, age_limit, info, price } = req.body;
       const { img } = req.files;
       let fileName = uuid.v4() + ".jpg";
-      img.mv(path.resolve(__dirname, '..', 'server','static'));
+      img.mv(path.resolve(__dirname, '..', 'static', fileName));
 
       const film = await Films.update(
-        { title, description, genre, age_limit, img: fileName, info },
+        { title, description, genre, age_limit, img: fileName, info, price },
         { where: { id: req.params.id } }
       );
       return res.status(200).json(film);

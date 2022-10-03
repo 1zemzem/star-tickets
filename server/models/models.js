@@ -23,7 +23,8 @@ const FilmRooms = sequelize.define("film_rooms", {
 
 const Seats = sequelize.define("seats", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }, 
-  number: {type: DataTypes.INTEGER, allowNull: false }
+  row_number: {type: DataTypes.INTEGER, allowNull: false },  
+  seat_number: {type: DataTypes.INTEGER, allowNull: false },  
 });
 
 const Films = sequelize.define("films", {
@@ -34,6 +35,7 @@ const Films = sequelize.define("films", {
   info: { type: DataTypes.STRING, allowNull: false },
   genre: { type: DataTypes.STRING, allowNull: false },
   age_limit: { type: DataTypes.STRING, allowNull: false },
+  price: {type: DataTypes.INTEGER, allowNull: false },
 });
 
 const FilmSessions = sequelize.define("film_sessions", {
@@ -83,4 +85,5 @@ module.exports = {
   Seats,
   FilmSessions,
   FilmRooms,
-};
+}; 
+

@@ -6,6 +6,7 @@ export interface IFilm {
   age_limit: string;
   genre: string;
   info: string;
+  price: number;
 }
 export interface FilmsReduserState {
   filmsList: IFilm[];
