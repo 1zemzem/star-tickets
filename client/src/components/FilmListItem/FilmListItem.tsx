@@ -7,10 +7,10 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Grid,
+  // Grid,
   Typography,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
 import { IFilm } from "../../types/typesFilm";
 import { API_URL } from "../../service/index";
 import { useNavigate } from "react-router-dom";

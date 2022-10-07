@@ -7,6 +7,8 @@ import { store } from "./store/store";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 import { Provider } from "react-redux";
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
 
 ReactDOM.render(
   

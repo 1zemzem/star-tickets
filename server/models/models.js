@@ -9,22 +9,22 @@ const Users = sequelize.define("users", {
 });
 
 const Orders = sequelize.define("orders", {
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }, 
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 });
 
 const Tickets = sequelize.define("tickets", {
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }, 
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 });
 
 const FilmRooms = sequelize.define("film_rooms", {
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }, 
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   film_room_name: { type: DataTypes.STRING, allowNull: false },
 });
 
 const Seats = sequelize.define("seats", {
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }, 
-  row_number: {type: DataTypes.INTEGER, allowNull: false },  
-  seat_number: {type: DataTypes.INTEGER, allowNull: false },  
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  row_number: { type: DataTypes.INTEGER, allowNull: false },
+  seat_number: { type: DataTypes.INTEGER, allowNull: false },
 });
 
 const Films = sequelize.define("films", {
@@ -35,12 +35,12 @@ const Films = sequelize.define("films", {
   info: { type: DataTypes.STRING, allowNull: false },
   genre: { type: DataTypes.STRING, allowNull: false },
   age_limit: { type: DataTypes.STRING, allowNull: false },
-  price: {type: DataTypes.INTEGER, allowNull: false },
+  price: { type: DataTypes.INTEGER, allowNull: false },
 });
 
 const FilmSessions = sequelize.define("film_sessions", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  datetime: { type: DataTypes.INTEGER, unique: true, allowNull: false },
+  datetime: {type: DataTypes.DATE, allowNull: false },
 });
 
 const Ratings = sequelize.define("ratings", {
@@ -85,5 +85,4 @@ module.exports = {
   Seats,
   FilmSessions,
   FilmRooms,
-}; 
-
+};

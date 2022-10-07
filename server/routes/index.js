@@ -11,7 +11,6 @@ const ratingRouter = require("./ratingRouter");
 
 router.use(Router.json());
 router.use(Router.urlencoded({ extended: true }));
-// router.use("/static", Router.static(__dirname + '/static'));
 router.use("/user", userRouter);
 router.use("/film", filmRouter);
 router.use("/film_session", film_sessionRouter);

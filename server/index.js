@@ -14,16 +14,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'static')));
-// console.log(path.join(__dirname, '..', 'server','static'));
 app.use(fileUpload({}));
 // все маршруты приложения
 app.use('/api', router); 
 //errorHandler в самом конце!!!
 app.use(errorHandler);
-
-// app.get('/', (req, res) => {
-//   res.status(200).json({message: "working"})
-// })
 
 const start = async () => {
   try {
