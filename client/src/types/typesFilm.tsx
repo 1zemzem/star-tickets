@@ -12,10 +12,9 @@ export interface FilmsReduserState {
   filmsList: IFilm[];
   isLoaded: boolean;
   error: boolean;
-  // searchByTime: number
 }
 
-export interface IStore {
+export interface IFilmStore {
   films: FilmsReduserState;
 }
 

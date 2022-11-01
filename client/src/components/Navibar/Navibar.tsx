@@ -98,10 +98,11 @@ export default function Navibar() {
             </NavLink>
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", justifyContent: "space-around" }}}>
             {pages.map((page) => (
               <Button
                 size="large"
+                style={{ fontSize: '20px' }}
                 variant="text"
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -116,7 +117,7 @@ export default function Navibar() {
             <NavLink to={LOGIN_ROUTE}>
               <Button
                 color="secondary"
-                variant="contained"
+                variant="contained"                
                 sx={{ borderRadius: 20 }}
               >
                 войти
