@@ -24,7 +24,7 @@ const FilmCard = (props: Props) => {
   const { filmSessionsList, fetchFilmSessions, error, isLoaded } = props;
 
   const [film, setFilm] = useState<IFilm | null>(null);
-  const [filmSession, setFilmSession] = useState<IFilmSession | null>(null);
+  // const [filmSession, setFilmSession] = useState<IFilmSession | null>(null);
 
   const { id } = useParams();
 
@@ -34,12 +34,16 @@ const FilmCard = (props: Props) => {
   };
 
   useEffect(() => {
-    fetchOneFilm(id).then((data) => setFilm(data));
+    fetchOneFilm(id).then((data) => {
+      setFilm(data);
+      fetchFilmSessions(film?.id);
+      // .then((session: any) =>
+      //   setFilmSession(session)
+      // );
+    });
   }, []);
 
-  // useEffect(() => {
-  //   fetchFilmSessions(film?.id).then((data: any) => setFilmSession(data));
-  // }, []);
+  console.log(filmSessionsList);
 
   return (
     <Card sx={{ bgcolor: "#27272a" }}>

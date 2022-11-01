@@ -7,7 +7,7 @@ import FilmCard from "./FilmCard";
 
 const mapStateToProps = ({filmSessions}:  IFilmSessionStore): Partial<FilmSessionsReduserState> => ({...filmSessions});
 const mapDispatchToProps = (dispatch:Dispatch<any> & ThunkDispatch<any, any, any>) => ({
-    fetchFilms: () => dispatch(fetchFilmSessions())
+    fetchFilmSessions: () => dispatch(fetchFilmSessions())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilmCard);

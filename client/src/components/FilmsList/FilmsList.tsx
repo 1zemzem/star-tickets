@@ -27,6 +27,8 @@ const FilmsList = (props: Props) => {
     fetchFilms();
   }, []);
 
+  // console.log(filmsList);
+
   if (isLoaded) {
     return <Spinner />;
   }
