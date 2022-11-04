@@ -13,13 +13,12 @@ import { makeStyles } from "@mui/styles";
 import logo from "../../images/logo.svg";
 import { NavLink } from "react-router-dom";
 import { HOME_ROUTE, LOGIN_ROUTE } from "../../utils/const";
+import { transform } from "typescript";
 
 const useStyles = makeStyles({
   components: {
     MuiAppBar: {
-      "&:hover": {
-        backgroundColor: "#a9a6a6",
-      },
+      color: "#a9a6a6",
     },
   },
 });
@@ -27,6 +26,8 @@ const pages = ["Афиша", "Инфо", "Мой профиль"];
 
 export default function Navibar() {
   const styles = useStyles();
+
+  // const [navbar, setNavbar] = React.useState(false);
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -40,8 +41,22 @@ export default function Navibar() {
     setAnchorElNav(null);
   };
 
+  // const changeNavbarBackground = () => {
+  //   if (window.scrollY >= 80) {
+  //     setNavbar(true);
+  //   } else {
+  //     setNavbar(false);
+  //   }
+  // };
+
   return (
-    <AppBar position="fixed" color="transparent" className={styles.components}>
+    <AppBar
+      position="fixed"
+      color="transparent"
+      // className={styles.components}
+      // className={navbar ? styles.components : "color" }
+      elevation={0}
+    >
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <NavLink to={HOME_ROUTE}>
@@ -98,11 +113,20 @@ export default function Navibar() {
             </NavLink>
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", justifyContent: "space-around" }}}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: {
+                xs: "none",
+                md: "flex",
+                justifyContent: "space-around",
+              },
+            }}
+          >
             {pages.map((page) => (
               <Button
                 size="large"
-                style={{ fontSize: '20px' }}
+                style={{ fontSize: "20px" }}
                 variant="text"
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -117,7 +141,7 @@ export default function Navibar() {
             <NavLink to={LOGIN_ROUTE}>
               <Button
                 color="secondary"
-                variant="contained"                
+                variant="contained"
                 sx={{ borderRadius: 20 }}
               >
                 войти

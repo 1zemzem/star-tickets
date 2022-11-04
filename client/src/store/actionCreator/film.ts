@@ -6,7 +6,7 @@ export const fetchFilms = () => {
   return async (dispatch: Dispatch<FetchData>) => {
     try {
       dispatch({ type: FilmsActionTypes.FETCH_DATA_BEGIN });
-      const response = await host.get("api/film");
+      const response = await host.get("/api/film");
       dispatch({
         type: FilmsActionTypes.FETCH_DATA_SUCCESS,
         payload: response.data,
@@ -24,7 +24,7 @@ export const fetchOneFilm = (id: number) => {
   return async (dispatch: Dispatch<FetchData>) => {
     try {
       dispatch({ type: FilmsActionTypes.FETCH_DATA_BEGIN });
-      const response = await host.get("api/film" + id);
+      const response = await host.get("/api/film" + id);
       dispatch({
         type: FilmsActionTypes.FETCH_DATA_SUCCESS,
         payload: response.data,

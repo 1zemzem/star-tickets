@@ -8,14 +8,14 @@ export interface IFilm {
   info: string;
   price: number;
 }
-export interface FilmsReduserState {
+export interface FilmsReducerState {
   filmsList: IFilm[];
   isLoaded: boolean;
   error: boolean;
 }
 
 export interface IFilmStore {
-  films: FilmsReduserState;
+  films: FilmsReducerState;
 }
 
 export interface FilmsAction {
@@ -24,9 +24,9 @@ export interface FilmsAction {
 }
 
 export enum FilmsActionTypes {
-  FETCH_DATA_BEGIN = "FETCH_DATA_BEGIN",
-  FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS",
-  FETCH_DATA_ERROR = "FETCH_DATA_ERROR",
+  FETCH_DATA_BEGIN = "FETCH_DATA_BEGIN_FILM",
+  FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS_FILM",
+  FETCH_DATA_ERROR = "FETCH_DATA_ERROR_FILM",
   FETCH_ONE_FILM = "FETCH_ONE_FILM",
 }
 interface FetchDataBegin {

@@ -3,13 +3,13 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import { Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { FilmsReduserState } from "../../types/typesFilm";
+import { FilmsReducerState } from "../../types/typesFilm";
 import Spinner from "../Spinner";
 import ErrorIndicator from "../ErrorIndicator";
 import { useNavigate } from "react-router-dom";
 import FilmListItem from "../FilmListItem";
 
-type Props = Partial<FilmsReduserState> & { fetchFilms: Function };
+type Props = Partial<FilmsReducerState> & { fetchFilms: Function };
 
 const useStyles = makeStyles({
   cover: {
@@ -19,15 +19,14 @@ const useStyles = makeStyles({
 
 const FilmsList = (props: Props) => {
   const { filmsList, fetchFilms, error, isLoaded } = props;
-
+  // console.log(props);
   const styles = useStyles();
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchFilms();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // console.log(filmsList);
 
   if (isLoaded) {
     return <Spinner />;
@@ -47,7 +46,7 @@ const FilmsList = (props: Props) => {
           px={4}
           justifyContent="center"
         >
-          {filmsList?.map((film: any) => (
+          {filmsList?.map((film) => (
             // <div>{film.title}</div>
             <Grid item lg={3} md={4} sm={6} xs={12}>
               <FilmListItem {...film} key={film.id} />

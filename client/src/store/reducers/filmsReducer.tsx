@@ -1,23 +1,21 @@
 import {
-  FilmsReduserState,
+  FilmsReducerState,
   FilmsAction,
   FilmsActionTypes,
 } from "../../types/typesFilm";
 
-export const initialState: FilmsReduserState = {
-  
+export const initialState: FilmsReducerState = {
   filmsList: [],
   isLoaded: false,
   error: false,
   // searchByTime: number
 };
 
-export const filmsReduser = (
+export const filmsReducer = (
   state = initialState,
   action: FilmsAction
-): FilmsReduserState => {
-  console.log(action.type, action.payload);
-  
+): FilmsReducerState => {
+  // console.log(action.type, action.payload);
   switch (action.type) {
     case FilmsActionTypes.FETCH_DATA_BEGIN:
       return {

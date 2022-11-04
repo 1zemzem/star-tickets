@@ -1,15 +1,16 @@
 export interface IFilmSession {
   id: number;
   datetime: string;
+  filmId: number;
 }
-export interface FilmSessionsReduserState {
+export interface FilmSessionsReducerState {
   filmSessionsList: IFilmSession[];
   isLoaded: boolean;
   error: boolean;
 }
 
 export interface IFilmSessionStore {
-  filmSessions: FilmSessionsReduserState;
+  filmSessions: FilmSessionsReducerState;
 }
 
 export interface FilmSessionsAction {
@@ -18,9 +19,9 @@ export interface FilmSessionsAction {
 }
 
 export enum FilmSessionsActionTypes {
-  FETCH_DATA_BEGIN = "FETCH_DATA_BEGIN",
-  FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS",
-  FETCH_DATA_ERROR = "FETCH_DATA_ERROR",
+  FETCH_DATA_BEGIN = "FETCH_DATA_BEGIN_FILMSESSION",
+  FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS_FILMSESSION",
+  FETCH_DATA_ERROR = "FETCH_DATA_ERROR_FILMSESSION",
   FETCH_ONE_FILMSESSION = "FETCH_ONE_FILMSESSION",
 }
 interface FetchDataBegin {

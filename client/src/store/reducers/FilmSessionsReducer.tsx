@@ -1,20 +1,20 @@
 import {
-  FilmSessionsReduserState,
+  FilmSessionsReducerState,
   FilmSessionsAction,
   FilmSessionsActionTypes,
 } from "../../types/typesFilmSession";
 
-export const initialState: FilmSessionsReduserState = {
+export const initialState: FilmSessionsReducerState = {
   filmSessionsList: [],
   isLoaded: false,
   error: false,
 };
 
-export const filmSessionsReduser = (
+export const filmSessionsReducer = (
   state = initialState,
   action: FilmSessionsAction
-): FilmSessionsReduserState => {
-  console.log(action.type, action.payload);
+): FilmSessionsReducerState => {
+  // console.log(action.type, action.payload);
 
   switch (action.type) {
     case FilmSessionsActionTypes.FETCH_DATA_BEGIN:

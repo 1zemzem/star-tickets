@@ -1,4 +1,5 @@
 const ApiError = require("../error/ApiError");
+
 const {Ratings} = require('../models/models');
 
 class RatingsController {
