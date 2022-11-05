@@ -3,29 +3,26 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import { Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { FilmsReducerState } from "../../types/typesFilm";
 import Spinner from "../Spinner";
 import ErrorIndicator from "../ErrorIndicator";
-import { useNavigate } from "react-router-dom";
 import FilmListItem from "../FilmListItem";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import {
+  errorFilmSelector,
+  filmsSelector,
+  isLoadedFilmSelector,
+} from "../../store/selectors/film";
+import { fetchFilms } from "../../store/actionCreator/film";
 
-type Props = Partial<FilmsReducerState> & { fetchFilms: Function };
+const FilmsList = () => {
+  const dispatch = useAppDispatch();
 
-const useStyles = makeStyles({
-  cover: {
-    borderRadius: "2rem",
-  },
-});
-
-const FilmsList = (props: Props) => {
-  const { filmsList, fetchFilms, error, isLoaded } = props;
-  // console.log(props);
-  const styles = useStyles();
-  const navigate = useNavigate();
+  const films = useAppSelector(filmsSelector);
+  const isLoaded = useAppSelector(isLoadedFilmSelector);
+  const error = useAppSelector(errorFilmSelector);
 
   useEffect(() => {
-    fetchFilms();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(fetchFilms());
   }, []);
 
   if (isLoaded) {
@@ -46,8 +43,7 @@ const FilmsList = (props: Props) => {
           px={4}
           justifyContent="center"
         >
-          {filmsList?.map((film) => (
-            // <div>{film.title}</div>
+          {films?.map((film) => (
             <Grid item lg={3} md={4} sm={6} xs={12}>
               <FilmListItem {...film} key={film.id} />
             </Grid>

@@ -6,7 +6,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, Container, Grid } from "@mui/material";
+import { Button, Container, Grid, Paper } from "@mui/material";
 import { host } from "../../service";
 import { useParams } from "react-router-dom";
 import { IFilm } from "../../types/typesFilm";
@@ -46,6 +46,7 @@ const FilmCard = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
 
   if (isLoaded) {
     return <Spinner />;
@@ -56,7 +57,8 @@ const FilmCard = () => {
   }
 
   return (
-    <Card sx={{ bgcolor: "#27272a", py: 12 }}>
+    <Paper >
+    <Card sx={{ bgcolor: "#27272a", py: 12, px: 2 }}>
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <CardMedia
@@ -81,38 +83,26 @@ const FilmCard = () => {
               <Typography paragraph sx={{ mb: 2 }}>
                 {film?.info}
               </Typography>
+
               <Grid container spacing={2}>
-
-              {filmSessions?.map((filmSession) => (
-            // <div>{film.title}</div>
-            <Grid item lg={3} md={4} sm={6} xs={12}>
-              <Button key={filmSession.id } >{filmSession.datetime } </Button>
-            </Grid>
-          ))}
-
-
-
-                {/* <Grid item>
-                  <Button variant="outlined" sx={{ mb: 4 }}>
-                    Time
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" sx={{ mb: 4 }}>
-                    Time
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" sx={{ mb: 4 }}>
-                    Time
-                  </Button>
-                </Grid> */}
+                {filmSessions?.map((filmSession) => (
+                  <Grid item lg={3} md={4} sm={6} xs={12}>
+                    <Button
+                      variant="outlined"
+                      sx={{ mb: 4 }}
+                      key={filmSession.id}
+                    >
+                      {filmSession.datetime}{" "}
+                    </Button>
+                  </Grid>
+                ))}
               </Grid>
             </CardContent>
           </Container>
         </Grid>
       </Grid>
     </Card>
+    </Paper>
   );
 };
 
