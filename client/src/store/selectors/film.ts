@@ -1,8 +1,8 @@
 import type { RootState } from "../../store/store";
 
 const filmsSelector = (store: RootState) => {
-    return store.films.filmsList;
-  };
+  return store.films.filmsList;
+};
 
 //   const filmByIdSelector = (id: number) => (store: RootState) => {
 //     return store.films.filmsList.filter(
@@ -10,16 +10,12 @@ const filmsSelector = (store: RootState) => {
 //     );
 //   };
 
-  const isLoadedFilmSelector = (store: RootState) => {
-    return store.films.isLoaded;
-  }
+const isLoadedFilmSelector = (store: RootState) => {
+  return store.films.isLoaded;
+};
 
-  const errorFilmSelector = (store: RootState) => {
-    return store.films.error;
-  }
+const errorFilmSelector = (store: RootState) => {
+  return store.films.error;
+};
 
-  export {
-    filmsSelector,
-    isLoadedFilmSelector,
-    errorFilmSelector,
-  }
+export { filmsSelector, isLoadedFilmSelector, errorFilmSelector };

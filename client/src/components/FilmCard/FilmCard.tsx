@@ -46,7 +46,6 @@ const FilmCard = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
 
   if (isLoaded) {
     return <Spinner />;
@@ -57,51 +56,51 @@ const FilmCard = () => {
   }
 
   return (
-    <Paper >
-    <Card sx={{ bgcolor: "#27272a", py: 12, px: 2 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <CardMedia
-            component="img"
-            src={API_URL + "/" + film?.img}
-            alt="img"
-            height={480}
-          />
-        </Grid>
-        <Grid item xs={8}>
-          <Container>
-            <CardContent>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                sx={{ mb: 4 }}
-              >
-                {film?.title}
-              </Typography>
+    <Paper>
+      <Card sx={{ bgcolor: "#27272a", py: 12, px: 2 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={4}>
+            <CardMedia
+              component="img"
+              src={API_URL + "/" + film?.img}
+              alt="img"
+              height={480}
+            />
+          </Grid>
+          <Grid item xs={8}>
+            <Container>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  sx={{ mb: 4 }}
+                >
+                  {film?.title}
+                </Typography>
 
-              <Typography paragraph sx={{ mb: 2 }}>
-                {film?.info}
-              </Typography>
+                <Typography paragraph sx={{ mb: 2 }}>
+                  {film?.info}
+                </Typography>
 
-              <Grid container spacing={2}>
-                {filmSessions?.map((filmSession) => (
-                  <Grid item lg={3} md={4} sm={6} xs={12}>
-                    <Button
-                      variant="outlined"
-                      sx={{ mb: 4 }}
-                      key={filmSession.id}
-                    >
-                      {filmSession.datetime}{" "}
-                    </Button>
-                  </Grid>
-                ))}
-              </Grid>
-            </CardContent>
-          </Container>
+                <Grid container spacing={2}>
+                  {filmSessions?.map((filmSession) => (
+                    <Grid item lg={3} md={4} sm={6} xs={12}>
+                      <Button
+                        variant="outlined"
+                        sx={{ mb: 4 }}
+                        key={filmSession.id}
+                      >
+                        {filmSession.datetime}{" "}
+                      </Button>
+                    </Grid>
+                  ))}
+                </Grid>
+              </CardContent>
+            </Container>
+          </Grid>
         </Grid>
-      </Grid>
-    </Card>
+      </Card>
     </Paper>
   );
 };

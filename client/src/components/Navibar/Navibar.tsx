@@ -13,21 +13,24 @@ import { makeStyles } from "@mui/styles";
 import logo from "../../images/logo.svg";
 import { NavLink } from "react-router-dom";
 import { HOME_ROUTE, LOGIN_ROUTE } from "../../utils/const";
-import { transform } from "typescript";
 
-const useStyles = makeStyles({
-  components: {
-    MuiAppBar: {
-      color: "#a9a6a6",
-    },
-  },
-});
+
 const pages = ["Афиша", "Инфо", "Мой профиль"];
 
 export default function Navibar() {
-  const styles = useStyles();
+  
+  const useStyles = makeStyles({
+    MuiAppBar: {
+      backgroundColor: 'transparent !important',
+    },
+    MuiAppBarScrolled: {
+      backgroundColor: "#181819", opacity: 0.95,
+    },
+  });
 
-  // const [navbar, setNavbar] = React.useState(false);
+  const styles = useStyles(); 
+
+  const [navbar, setNavbar] = React.useState(false);
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -41,20 +44,21 @@ export default function Navibar() {
     setAnchorElNav(null);
   };
 
-  // const changeNavbarBackground = () => {
-  //   if (window.scrollY >= 80) {
-  //     setNavbar(true);
-  //   } else {
-  //     setNavbar(false);
-  //   }
-  // };
+  const changeNavbarBackground = () => {
+    if (window.scrollY >= 60) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+  window.addEventListener('scroll', changeNavbarBackground)
 
   return (
     <AppBar
       position="fixed"
-      color="transparent"
-      // className={styles.components}
-      // className={navbar ? styles.components : "color" }
+      // color="transparent"
+      // className={styles.MuiAppBar}
+      className={navbar ? styles.MuiAppBarScrolled : styles.MuiAppBar}
       elevation={0}
     >
       <Container maxWidth="lg">
