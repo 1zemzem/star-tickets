@@ -3,7 +3,7 @@ import FilmPage from "./pages/FilmPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import PaymentPage from "./pages/PaymentPage";
-import RegistrationPage from "./pages/RegistrationPage";
+// import RegistrationPage from "./pages/RegistrationPage";
 import TicketsPage from "./pages/TicketsPage";
 import UserPage from "./pages/UserPage";
 
@@ -16,7 +16,6 @@ import {
   FILM_ROUTE,
   TICKETS,
   PAYMENT_AUTH,
-  // STATIC,
 } from "./utils/const";
 
 export const authRoutes = [

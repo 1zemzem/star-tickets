@@ -24,6 +24,7 @@ export const fetchFilmSessions = (filmId: number) => {
   };
 };
 
+
 export const fetchOneFilmSession = (id: number) => {
   return async (dispatch: Dispatch<FetchFilmSession>) => {
     try {

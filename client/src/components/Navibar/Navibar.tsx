@@ -14,21 +14,20 @@ import logo from "../../images/logo.svg";
 import { NavLink } from "react-router-dom";
 import { HOME_ROUTE, LOGIN_ROUTE } from "../../utils/const";
 
-
 const pages = ["Афиша", "Инфо", "Мой профиль"];
 
 export default function Navibar() {
-  
   const useStyles = makeStyles({
     MuiAppBar: {
-      backgroundColor: 'transparent !important',
+      backgroundColor: "transparent !important",
     },
     MuiAppBarScrolled: {
-      backgroundColor: "#181819", opacity: 0.95,
+      backgroundColor: "#181819",
+      opacity: 0.95,
     },
   });
 
-  const styles = useStyles(); 
+  const styles = useStyles();
 
   const [navbar, setNavbar] = React.useState(false);
 
@@ -51,13 +50,11 @@ export default function Navibar() {
       setNavbar(false);
     }
   };
-  window.addEventListener('scroll', changeNavbarBackground)
+  window.addEventListener("scroll", changeNavbarBackground);
 
   return (
     <AppBar
       position="fixed"
-      // color="transparent"
-      // className={styles.MuiAppBar}
       className={navbar ? styles.MuiAppBarScrolled : styles.MuiAppBar}
       elevation={0}
     >

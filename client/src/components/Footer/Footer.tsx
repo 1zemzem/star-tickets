@@ -4,10 +4,9 @@ import Typography from "@mui/material/Typography";
 import { Container, Paper, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
-import  iconFacebook  from "../../images/iconFacebook.png"
-import iconTwitter from "../../images/iconTwitter.png"
-import iconInstagram from "../../images/iconInstagram.png"
-
+import iconFacebook from "../../images/iconFacebook.png";
+import iconTwitter from "../../images/iconTwitter.png";
+import iconInstagram from "../../images/iconInstagram.png";
 
 function Copyright() {
   return (
@@ -28,10 +27,6 @@ const iconStyle = {
   justifyContent: "center",
   alignItems: "center",
   mr: 2,
-  // backgroundColor: "warning.main",
-  // "&:hover": {
-  //   bgcolor: "warning.dark",
-  // },
 };
 
 const LANGUAGES = [
@@ -59,22 +54,13 @@ export default function AppFooter() {
             >
               <Grid item sx={{ display: "flex" }}>
                 <Box component="a" href="https://facebook.com/" sx={iconStyle}>
-                  <img
-                    src={ iconFacebook } 
-                    alt="Facebook"
-                  />
+                  <img src={iconFacebook} alt="Facebook" />
                 </Box>
                 <Box component="a" href="https://twitter.com/" sx={iconStyle}>
-                  <img
-                    src={ iconTwitter }
-                    alt="Twitter"
-                  />
+                  <img src={iconTwitter} alt="Twitter" />
                 </Box>
                 <Box component="a" href="https://instagram.com/" sx={iconStyle}>
-                  <img
-                    src= { iconInstagram }
-                    alt="Instagram"
-                  />
+                  <img src={iconInstagram} alt="Instagram" />
                 </Box>
               </Grid>
               <Grid item>
@@ -128,25 +114,3 @@ export default function AppFooter() {
     </Paper>
   );
 }
-
-// const Footer = () => {
-//   return (
-//     <Paper sx={{ p: 2 }} component="footer" >
-//       <Container maxWidth="lg">
-//       <Typography variant="h6" align="center" gutterBottom>
-//         Footer
-//       </Typography>
-//       <Typography
-//         variant="subtitle1"
-//         align="center"
-//         color="text.secondary"
-//         component="p"
-//       >
-//         Something here to give the footer a purpose!
-//       </Typography>
-//       </Container>
-//     </Paper>
-//   );
-// };
-
-// export default Footer;

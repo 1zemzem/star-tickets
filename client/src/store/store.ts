@@ -1,13 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { filmsReducer } from "./reducers/filmsReducer";
-import { filmSessionsReducer } from "./reducers/FilmSessionsReducer"
+import { filmSessionsReducer } from "./reducers/FilmSessionsReducer";
 
 export const store = configureStore({
   reducer: {
     films: filmsReducer,
     filmSessions: filmSessionsReducer,
   },
-   
 });
 
 export type AppDispatch = typeof store.dispatch;
