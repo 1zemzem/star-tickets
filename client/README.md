@@ -4,7 +4,8 @@
 ## Стек технологий:
 nodeJS, 
 React/Redux, 
-MaterialUI.
+MaterialUI, 
+Axios,
 Страницы:
 Single Page Application,
 Клиентская валидация.
