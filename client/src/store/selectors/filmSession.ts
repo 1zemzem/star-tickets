@@ -1,25 +1,32 @@
+import { createSelector } from "@reduxjs/toolkit";
 import type { RootState } from "../../store/store";
 
-const filmSessionsSelector = (store: RootState) => {
-  return store.filmSessions.filmSessionsList;
-};
+const filmSessionsSelector = (store: RootState) => store.filmSessions;
 
-const filmSessionsByIdSelector = (id: number) => (store: RootState) => {
-  return store.filmSessions.filmSessionsList.filter(
-    (session) => session.filmId === id
-  );
-};
+const filmSessionsListSelector = createSelector(
+  [filmSessionsSelector],
+  (filmsSession) => filmsSession.filmSessionsList
+);
 
-const isLoadedSessionsSelector = (store: RootState) => {
-  return store.filmSessions.isLoaded;
-};
+// https://github.com/reduxjs/reselect#q-how-do-i-create-a-selector-that-takes-an-argument
 
-const errorSessionsSelector = (store: RootState) => {
-  return store.filmSessions.error;
-};
+const filmSessionsByIdSelector = createSelector(
+  [filmSessionsListSelector, (store: RootState, filmId: number) => filmId],
+  (sessions, filmId) => sessions.filter((session) => session.filmId === filmId)
+);
+
+const isLoadedSessionsSelector = createSelector(
+  [filmSessionsSelector],
+  (filmsSession) => filmsSession.isLoaded
+);
+
+const errorSessionsSelector = createSelector(
+  [filmSessionsSelector],
+  (filmsSession) => filmsSession.error
+);
 
 export {
-  filmSessionsSelector,
+  filmSessionsListSelector,
   isLoadedSessionsSelector,
   errorSessionsSelector,
   filmSessionsByIdSelector,

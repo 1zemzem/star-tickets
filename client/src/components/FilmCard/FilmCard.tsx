@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import * as React from "react";
 import { API_URL } from "../../service/index";
 import { useEffect, useState } from "react";
@@ -19,33 +20,28 @@ import {
   isLoadedSessionsSelector,
 } from "../../store/selectors/filmSession";
 import { fetchFilmSessions } from "../../store/actionCreator/filmSession";
+import { fetchOneFilm } from "../../store/actionCreator/film";
+import { filmByIdSelector } from "../../store/selectors/film";
 
 const FilmCard = () => {
   const { id } = useParams();
-
+  const filmId = Number(id);
   const dispatch = useAppDispatch();
 
-  const filmSessions = useAppSelector(filmSessionsByIdSelector(Number(id)));
+  const film = useAppSelector((state) => filmByIdSelector(state, filmId));
+
+  // const items = useSelector(state => selectItemsByCategory(state, 'javascript'));
+  const filmSessions = useAppSelector((state) =>
+    filmSessionsByIdSelector(state, filmId)
+  );
 
   const isLoaded = useAppSelector(isLoadedSessionsSelector);
   const error = useAppSelector(errorSessionsSelector);
 
-  const [film, setFilm] = useState<IFilm | null>(null);
-
-  console.log(filmSessions);
-
-  const fetchOneFilm = async (id: any) => {
-    const { data } = await host.get("api/film/" + id);
-    return data;
-  };
-
   useEffect(() => {
-    fetchOneFilm(id).then((data) => {
-      setFilm(data);
-      dispatch(fetchFilmSessions(data.id));
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    dispatch(fetchOneFilm(filmId));
+    dispatch(fetchFilmSessions(filmId));
+  }, [filmId]);
 
   if (isLoaded) {
     return <Spinner />;
@@ -85,12 +81,15 @@ const FilmCard = () => {
 
                 <Grid container spacing={2}>
                   {filmSessions?.map((filmSession) => (
-                    <Grid item lg={3} md={4} sm={6} xs={12}>
-                      <Button
-                        variant="outlined"
-                        sx={{ mb: 4 }}
-                        key={filmSession.id}
-                      >
+                    <Grid
+                      item
+                      key={filmSession.id}
+                      lg={3}
+                      md={4}
+                      sm={6}
+                      xs={12}
+                    >
+                      <Button variant="outlined" sx={{ mb: 4 }}>
                         {filmSession.datetime}{" "}
                       </Button>
                     </Grid>

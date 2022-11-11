@@ -9,7 +9,7 @@ import FilmListItem from "../FilmListItem";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import {
   errorFilmSelector,
-  filmsSelector,
+  filmsListSelector,
   isLoadedFilmSelector,
 } from "../../store/selectors/film";
 import { fetchFilms } from "../../store/actionCreator/film";
@@ -17,7 +17,7 @@ import { fetchFilms } from "../../store/actionCreator/film";
 const FilmsList = () => {
   const dispatch = useAppDispatch();
 
-  const films = useAppSelector(filmsSelector);
+  const films = useAppSelector(filmsListSelector);
   const isLoaded = useAppSelector(isLoadedFilmSelector);
   const error = useAppSelector(errorFilmSelector);
 
