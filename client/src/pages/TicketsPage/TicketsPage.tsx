@@ -1,14 +1,12 @@
-import React from 'react';
-import { Container, Paper } from '@mui/material';
+import React from "react";
+import { Container, Typography, Paper } from "@mui/material";
+import FilmsList from "../../components/FilmsList";
+import FilmCardMini from "../../components/FilmCardMini";
 
 const TicketsPage = () => {
-    return (
-        <Paper sx={{ py: 12 }}>
-        <Container >
-            <h1>seats</h1>
-        </Container>
-        </Paper>
-    );
+  return (
+    <FilmCardMini></FilmCardMini>
+  )
 };
 
 export default TicketsPage;

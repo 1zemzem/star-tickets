@@ -1,16 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import * as React from "react";
 import { API_URL } from "../../service/index";
-import { useEffect, useState } from "react";
+import { useEffect, } from "react";
 import Card from "@mui/material/Card";
 // import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, Container, Grid, Paper } from "@mui/material";
-import { host } from "../../service";
-import { useParams } from "react-router-dom";
-import { IFilm } from "../../types/typesFilm";
+import { useParams, useNavigate } from "react-router-dom";
 import Spinner from "../Spinner";
 import ErrorIndicator from "../ErrorIndicator";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
@@ -22,13 +20,19 @@ import {
 import { fetchFilmSessions } from "../../store/actionCreator/filmSession";
 import { fetchOneFilm } from "../../store/actionCreator/film";
 import { filmByIdSelector } from "../../store/selectors/film";
+import "moment/locale/ru";
+import { TICKETS_ROUTE } from "../../utils/const";
 
 const FilmCard = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const filmId = Number(id);
   const dispatch = useAppDispatch();
 
   const film = useAppSelector((state) => filmByIdSelector(state, filmId));
+
+  const moment = require("moment");
+  moment.locale("ru"); // затребовать используемый модуль
 
   // const items = useSelector(state => selectItemsByCategory(state, 'javascript'));
   const filmSessions = useAppSelector((state) =>
@@ -89,8 +93,8 @@ const FilmCard = () => {
                       sm={6}
                       xs={12}
                     >
-                      <Button variant="outlined" sx={{ mb: 4 }}>
-                        {filmSession.datetime}{" "}
+                      <Button variant="outlined" sx={{ mb: 4 }} onClick={() => navigate(TICKETS_ROUTE + "/" + id)}>
+                        {moment(filmSession.datetime).format("DD MMMM HH:mm")}
                       </Button>
                     </Grid>
                   ))}

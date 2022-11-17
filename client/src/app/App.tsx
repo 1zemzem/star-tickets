@@ -1,16 +1,17 @@
 import React from "react";
 import AppRouter from "../components/AppRouter";
-import Footer from "../components/Footer";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./App.css";
-import Navibar from "../components/Navibar";
+import Layout from "../components/Layout";
+import { grey } from "@mui/material/colors";
 
 export const darkTheme = createTheme({
   palette: {
     mode: "dark",
 
     background: {
-      paper: "#181819",
+      default: "#424242",
+      
     },
 
     primary: {
@@ -28,9 +29,9 @@ function App() {
   return (
     <>
       <ThemeProvider theme={darkTheme}>
-        <Navibar />
-        <AppRouter />
-        <Footer />
+        <Layout>
+          <AppRouter />
+        </Layout>
       </ThemeProvider>
     </>
   );

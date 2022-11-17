@@ -6,7 +6,7 @@ export const LOGIN_ROUTE = "/login";
 export const REGISTR_ROUTE = "/registration";
 
 export const FILM_ROUTE = "/film";
-export const TICKETS = "/tickets";
+export const TICKETS_ROUTE = "/ticket";
 export const PAYMENT_AUTH = "/payment";
 
 // export const STATIC = "/static";

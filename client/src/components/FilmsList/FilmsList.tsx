@@ -44,8 +44,8 @@ const FilmsList = () => {
           justifyContent="center"
         >
           {films?.map((film) => (
-            <Grid item lg={3} md={4} sm={6} xs={12}>
-              <FilmListItem {...film} key={film.id} />
+            <Grid item key={film.id} lg={3} md={4} sm={6} xs={12}>
+              <FilmListItem {...film}  />
             </Grid>
           ))}
         </Grid>

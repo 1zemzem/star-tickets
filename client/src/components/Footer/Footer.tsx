@@ -4,9 +4,9 @@ import Typography from "@mui/material/Typography";
 import { Container, Paper, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
-import iconFacebook from "../../images/iconFacebook.png";
-import iconTwitter from "../../images/iconTwitter.png";
-import iconInstagram from "../../images/iconInstagram.png";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 function Copyright() {
   return (
@@ -21,12 +21,12 @@ function Copyright() {
 }
 
 const iconStyle = {
-  width: 40,
-  height: 40,
+  width: 48,
+  height: 48,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  mr: 2,
+  mr: 1,
 };
 
 const LANGUAGES = [
@@ -42,8 +42,12 @@ const LANGUAGES = [
 
 export default function AppFooter() {
   return (
-    <Paper sx={{ p: 2 }} component="footer">
-      <Container sx={{ my: 6, display: "flex" }}>
+    <Paper
+      sx={{ p: 2, bottom: 0, width: "100%" }}
+      component="footer"
+      elevation={1}
+    >
+      <Container sx={{ my: 2, display: "flex" }}>
         <Grid container spacing={5}>
           <Grid item xs={6} sm={4} md={3}>
             <Grid
@@ -54,13 +58,13 @@ export default function AppFooter() {
             >
               <Grid item sx={{ display: "flex" }}>
                 <Box component="a" href="https://facebook.com/" sx={iconStyle}>
-                  <img src={iconFacebook} alt="Facebook" />
+                  <FacebookIcon color="primary" />
                 </Box>
                 <Box component="a" href="https://twitter.com/" sx={iconStyle}>
-                  <img src={iconTwitter} alt="Twitter" />
+                  <TwitterIcon color="primary" />
                 </Box>
                 <Box component="a" href="https://instagram.com/" sx={iconStyle}>
-                  <img src={iconInstagram} alt="Instagram" />
+                  <InstagramIcon color="primary" />
                 </Box>
               </Grid>
               <Grid item>
