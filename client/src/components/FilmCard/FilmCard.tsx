@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import * as React from "react";
 import { API_URL } from "../../service/index";
-import { useEffect, } from "react";
+import { useEffect } from "react";
 import Card from "@mui/material/Card";
-// import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, Container, Grid, Paper } from "@mui/material";
+import { Box, Button, Container, Grid, } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import Spinner from "../Spinner";
 import ErrorIndicator from "../ErrorIndicator";
@@ -17,7 +16,7 @@ import {
   filmSessionsByIdSelector,
   isLoadedSessionsSelector,
 } from "../../store/selectors/filmSession";
-import { fetchFilmSessions } from "../../store/actionCreator/filmSession";
+import { fetchAllFilmSessions } from "../../store/actionCreator/filmSession";
 import { fetchOneFilm } from "../../store/actionCreator/film";
 import { filmByIdSelector } from "../../store/selectors/film";
 import "moment/locale/ru";
@@ -44,7 +43,7 @@ const FilmCard = () => {
 
   useEffect(() => {
     dispatch(fetchOneFilm(filmId));
-    dispatch(fetchFilmSessions(filmId));
+    dispatch(fetchAllFilmSessions(filmId));
   }, [filmId]);
 
   if (isLoaded) {
@@ -56,55 +55,61 @@ const FilmCard = () => {
   }
 
   return (
-    <Paper>
-      <Card sx={{ bgcolor: "#27272a", py: 12, px: 2 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <CardMedia
-              component="img"
-              src={API_URL + "/" + film?.img}
-              alt="img"
-              height={480}
-            />
-          </Grid>
-          <Grid item xs={8}>
-            <Container>
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  sx={{ mb: 4 }}
-                >
-                  {film?.title}
-                </Typography>
-
-                <Typography paragraph sx={{ mb: 2 }}>
-                  {film?.info}
-                </Typography>
-
-                <Grid container spacing={2}>
-                  {filmSessions?.map((filmSession) => (
-                    <Grid
-                      item
-                      key={filmSession.id}
-                      lg={3}
-                      md={4}
-                      sm={6}
-                      xs={12}
-                    >
-                      <Button variant="outlined" sx={{ mb: 4 }} onClick={() => navigate(TICKETS_ROUTE + "/" + id)}>
-                        {moment(filmSession.datetime).format("DD MMMM HH:mm")}
-                      </Button>
-                    </Grid>
-                  ))}
-                </Grid>
-              </CardContent>
-            </Container>
-          </Grid>
+    <Card sx={{ bgcolor: "#27272a", py: 12, px: 2 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <CardMedia
+            component="img"
+            src={API_URL + "/" + film?.img}
+            alt="img"
+            height={480}
+          />
         </Grid>
-      </Card>
-    </Paper>
+        <Grid item xs={8}>
+          <Container>
+            <CardContent>
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                sx={{ mb: 4 }}
+              >
+                {film?.title}
+              </Typography>
+
+              <Typography paragraph sx={{ mb: 2 }}>
+                {film?.info}
+              </Typography>
+
+              <Grid container spacing={2}>
+                {filmSessions?.map((filmSession) => (
+                  <Grid item key={filmSession.id} lg={3} md={4} sm={6} xs={12}>
+                    <Button
+                      variant="outlined"
+                      sx={{ mb: 4 }}
+                      onClick={() => navigate(TICKETS_ROUTE)}
+                    >
+                      <Grid>
+                        <Grid item>
+                          {moment(filmSession.datetime).format("HH:mm")}
+                        </Grid>
+                        <Grid item>
+                          {moment(filmSession.datetime).format("DD MMMM")}
+                        </Grid>
+                        <Grid item>
+                          <Box sx={{ borderBottom: 1, my: 1 }} />
+                        </Grid>
+                        <Grid item>{filmId}</Grid>
+                      </Grid>
+                    </Button>
+                  </Grid>
+                ))}
+              </Grid>
+            </CardContent>
+          </Container>
+        </Grid>
+      </Grid>
+    </Card>
   );
 };
 

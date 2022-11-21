@@ -17,18 +17,18 @@ export const filmSessionsReducer = (
   // console.log(action.type, action.payload);
 
   switch (action.type) {
-    case FilmSessionsActionTypes.FETCH_DATA_BEGIN:
+    case FilmSessionsActionTypes.FETCH_DATA_BEGIN_FILMSESSION:
       return {
         ...state,
         isLoaded: true,
       };
-    case FilmSessionsActionTypes.FETCH_DATA_ERROR:
+    case FilmSessionsActionTypes.FETCH_DATA_ERROR_FILMSESSION:
       return {
         ...state,
         isLoaded: false,
         error: action.payload,
       };
-    case FilmSessionsActionTypes.FETCH_DATA_SUCCESS:
+    case FilmSessionsActionTypes.FETCH_DATA_SUCCESS_FILMSESSION:
       return {
         ...state,
         isLoaded: false,

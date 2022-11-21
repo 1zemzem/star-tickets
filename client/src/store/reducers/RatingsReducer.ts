@@ -10,24 +10,24 @@ export const initialState: RatingsReducerState = {
   error: false,
 };
 
-export const RatingsReducer = (
+export const ratingsReducer = (
   state = initialState,
   action: RatingsAction
 ): RatingsReducerState => {
   // console.log(action.type, action.payload);
   switch (action.type) {
-    case RatingsActionTypes.FETCH_RATING_BEGIN:
+    case RatingsActionTypes.FETCH_DATA_BEGIN:
       return {
         ...state,
         isLoaded: true,
       };
-    case RatingsActionTypes.FETCH_RATING_ERROR:
+    case RatingsActionTypes.FETCH_DATA_ERROR:
       return {
         ...state,
         isLoaded: false,
         error: action.payload,
       };
-    case RatingsActionTypes.FETCH_RATING_SUCCESS:
+    case RatingsActionTypes.FETCH_DATA_SUCCESS:
       return {
         ...state,
         isLoaded: false,

@@ -22,7 +22,7 @@ export default function Navibar() {
       backgroundColor: "transparent !important",
     },
     MuiAppBarScrolled: {
-      backgroundColor: "#181819",
+      backgroundColor: "default",
       opacity: 0.95,
     },
   });
@@ -58,7 +58,7 @@ export default function Navibar() {
       className={navbar ? styles.MuiAppBarScrolled : styles.MuiAppBar}
       elevation={0}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <NavLink to={HOME_ROUTE}>
             <Box

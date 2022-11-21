@@ -5,7 +5,10 @@ import FilmCardMini from "../../components/FilmCardMini";
 
 const TicketsPage = () => {
   return (
-    <FilmCardMini></FilmCardMini>
+    <Paper>
+ <FilmCardMini />
+    </Paper>
+   
   )
 };
 

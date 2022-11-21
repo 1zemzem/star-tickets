@@ -28,6 +28,7 @@ export const filmsReducer = (
         isLoaded: false,
         error: action.payload,
       };
+
     case FilmsActionTypes.FETCH_DATA_SUCCESS:
       return {
         ...state,

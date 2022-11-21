@@ -34,23 +34,21 @@ const FilmsList = () => {
   }
 
   return (
-    <Paper sx={{ py: 6 }}>
-      <Container maxWidth="lg">
-        <Grid
-          container
-          rowSpacing={8}
-          columnSpacing={4}
-          px={4}
-          justifyContent="center"
-        >
-          {films?.map((film) => (
-            <Grid item key={film.id} lg={3} md={4} sm={6} xs={12}>
-              <FilmListItem {...film}  />
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </Paper>
+    <Container maxWidth="xl" sx={{ paddingTop: 6 }}>
+      <Grid
+        container
+        rowSpacing={8}
+        columnSpacing={4}
+        px={4}
+        justifyContent="center"
+      >
+        {films?.map((film) => (
+          <Grid item key={film.id} lg={3} md={4} sm={6} xs={12}>
+            <FilmListItem {...film} />
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
 };
 

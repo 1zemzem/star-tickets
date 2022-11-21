@@ -3,7 +3,6 @@ import AppRouter from "../components/AppRouter";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./App.css";
 import Layout from "../components/Layout";
-import { grey } from "@mui/material/colors";
 
 export const darkTheme = createTheme({
   palette: {
@@ -11,7 +10,6 @@ export const darkTheme = createTheme({
 
     background: {
       default: "#424242",
-      
     },
 
     primary: {

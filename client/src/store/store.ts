@@ -1,13 +1,17 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { filmsReducer } from "./reducers/filmsReducer";
 import { filmSessionsReducer } from "./reducers/FilmSessionsReducer";
-import { RatingsReducer } from "./reducers/RatingsReducer";
+import { ratingsReducer } from "./reducers/RatingsReducer";
+import { seatsReducer } from "./reducers/SeatsReducer"
+import { filmRoomsReducer } from "./reducers/FilmRoomsReducer"
 
 export const store = configureStore({
   reducer: {
     films: filmsReducer,
     filmSessions: filmSessionsReducer,
-    ratings: RatingsReducer,
+    ratings: ratingsReducer,
+    seats: seatsReducer,
+    filmRooms: filmRoomsReducer,
   },
 });
 

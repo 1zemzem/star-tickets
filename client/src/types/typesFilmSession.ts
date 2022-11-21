@@ -2,6 +2,7 @@ export interface IFilmSession {
   id: number;
   datetime: string;
   filmId: number;
+  film_roomId: number;
 }
 export interface FilmSessionsReducerState {
   filmSessionsList: IFilmSession[];
@@ -19,20 +20,20 @@ export interface FilmSessionsAction {
 }
 
 export enum FilmSessionsActionTypes {
-  FETCH_DATA_BEGIN = "FETCH_DATA_BEGIN_FILMSESSION",
-  FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS_FILMSESSION",
-  FETCH_DATA_ERROR = "FETCH_DATA_ERROR_FILMSESSION",
+  FETCH_DATA_BEGIN_FILMSESSION = "FETCH_DATA_BEGIN_FILMSESSION",
+  FETCH_DATA_SUCCESS_FILMSESSION = "FETCH_DATA_SUCCESS_FILMSESSION",
+  FETCH_DATA_ERROR_FILMSESSION = "FETCH_DATA_ERROR_FILMSESSION",
   FETCH_ONE_FILMSESSION = "FETCH_ONE_FILMSESSION",
 }
 interface FetchDataBegin {
-  type: FilmSessionsActionTypes.FETCH_DATA_BEGIN;
+  type: FilmSessionsActionTypes.FETCH_DATA_BEGIN_FILMSESSION;
 }
 interface FetchDataSuccess {
-  type: FilmSessionsActionTypes.FETCH_DATA_SUCCESS;
+  type: FilmSessionsActionTypes.FETCH_DATA_SUCCESS_FILMSESSION;
   payload: IFilmSession[];
 }
 interface FetchDataError {
-  type: FilmSessionsActionTypes.FETCH_DATA_ERROR;
+  type: FilmSessionsActionTypes.FETCH_DATA_ERROR_FILMSESSION;
   payload: string;
 }
 

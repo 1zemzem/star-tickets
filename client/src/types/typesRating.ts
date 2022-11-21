@@ -21,23 +21,23 @@ export interface RatingsAction {
 }
 
 export enum RatingsActionTypes {
-  FETCH_RATING_BEGIN = "FETCH_DATA_BEGIN_RATING",
-  FETCH_RATING_SUCCESS = "FETCH_DATA_SUCCESS_RATING",
-  FETCH_RATING_ERROR = "FETCH_DATA_ERROR_RATING",
+  FETCH_DATA_BEGIN = "FETCH_DATA_BEGIN_RATING",
+  FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS_RATING",
+  FETCH_DATA_ERROR = "FETCH_DATA_ERROR_RATING",
   FETCH_ONE_RATING = "FETCH_ONE_RATING",
 }
 
 interface FetchDataBegin {
-  type: RatingsActionTypes.FETCH_RATING_BEGIN;
+  type: RatingsActionTypes.FETCH_DATA_BEGIN;
 }
 
 interface FetchDataError {
-  type: RatingsActionTypes.FETCH_RATING_ERROR;
+  type: RatingsActionTypes.FETCH_DATA_ERROR;
   payload: string;
 }
 
 interface FetchDataSuccess {
-  type: RatingsActionTypes.FETCH_RATING_SUCCESS;
+  type: RatingsActionTypes.FETCH_DATA_SUCCESS;
   payload: IRating[];
 }
 

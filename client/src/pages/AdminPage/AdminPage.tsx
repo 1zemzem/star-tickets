@@ -6,7 +6,7 @@ import { Container, Paper } from "@mui/material";
 const AdminPage = () => {
   return (
     <Paper sx={{ py: 12 }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Stack component="form" noValidate spacing={3}>
           <TextField
             id="datetime-local"

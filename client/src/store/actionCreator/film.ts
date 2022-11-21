@@ -2,6 +2,7 @@ import { authHost, host } from "../../service/index";
 import { FilmsActionTypes, FetchData } from "../../types/typesFilm";
 import { Dispatch } from "react";
 
+
 export const fetchFilms = () => {
   return async (dispatch: Dispatch<FetchData>) => {
     try {
@@ -26,7 +27,7 @@ export const fetchOneFilm = (id: number) => {
       dispatch({ type: FilmsActionTypes.FETCH_DATA_BEGIN });
       const response = await host.get("/api/film" + id);
       dispatch({
-        type: FilmsActionTypes.FETCH_DATA_SUCCESS,
+        type: FilmsActionTypes.FETCH_ONE_FILM,
         payload: response.data,
       });
       console.log(response)
