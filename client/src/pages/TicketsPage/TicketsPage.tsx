@@ -1,15 +1,13 @@
 import React from "react";
-import { Container, Typography, Paper } from "@mui/material";
-import FilmsList from "../../components/FilmsList";
+import { Paper } from "@mui/material";
 import FilmCardMini from "../../components/FilmCardMini";
 
 const TicketsPage = () => {
   return (
-    <Paper>
- <FilmCardMini />
+    <Paper sx={{px: 4}}>
+      <FilmCardMini />
     </Paper>
-   
-  )
+  );
 };
 
 export default TicketsPage;

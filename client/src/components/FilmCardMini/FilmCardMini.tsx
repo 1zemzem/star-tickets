@@ -1,16 +1,47 @@
-import { Typography, } from '@mui/material';
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import { CardMedia, Container, Grid, Typography } from "@mui/material";
+import imgSmall from "../../images/0a035c40-0875-4704-ae46-52d1f27d6dc3.jpg";
+
+const Img = styled("img")({
+  margin: "auto",
+  display: "block",
+  maxWidth: "100%",
+  maxHeight: "100%",
+});
 
 const FilmCardMini = () => {
-
-       
-    return (
-        <Container >
-            <Typography >hhhh</Typography>
-        </Container>
-    );
+  return (
+    <Container maxWidth="xl" sx={{ paddingTop: 16 }}>
+      <Grid container spacing={4}>
+        <Grid item>
+          <CardMedia sx={{ height: 140 }}>
+            <Img alt="img" src={imgSmall} />
+          </CardMedia>
+        </Grid>
+        <Grid item xs={12} sm container alignItems="center">
+          <Grid item xs container direction="column" spacing={2}>
+            <Grid item xs>
+              <Typography gutterBottom variant="h5" component="div">
+                Film Title
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                Film Room
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                Age Limit
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Typography variant="h5" component="div">
+              Date Time
+            </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Container>
+  );
 };
 
 export default FilmCardMini;

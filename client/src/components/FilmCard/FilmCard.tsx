@@ -2,11 +2,12 @@
 import * as React from "react";
 import { API_URL } from "../../service/index";
 import { useEffect } from "react";
+import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, Button, Container, Grid, } from "@mui/material";
+import { Box, Button, Container, Grid } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import Spinner from "../Spinner";
 import ErrorIndicator from "../ErrorIndicator";
@@ -23,6 +24,14 @@ import "moment/locale/ru";
 import { TICKETS_ROUTE } from "../../utils/const";
 
 const FilmCard = () => {
+  const Img = styled("img")({
+    margin: "auto",
+    display: "block",
+    maxWidth: "100%",
+    maxHeight: "100%",
+    borderRadius: "0.5rem",
+  });
+
   const navigate = useNavigate();
   const { id } = useParams();
   const filmId = Number(id);
@@ -58,12 +67,9 @@ const FilmCard = () => {
     <Card sx={{ bgcolor: "#27272a", py: 12, px: 2 }}>
       <Grid container spacing={2}>
         <Grid item xs={4}>
-          <CardMedia
-            component="img"
-            src={API_URL + "/" + film?.img}
-            alt="img"
-            height={480}
-          />
+          <CardMedia sx={{ height: 400 }}>
+            <Img alt="img" src={API_URL + "/" + film?.img} />
+          </CardMedia>
         </Grid>
         <Grid item xs={8}>
           <Container>
