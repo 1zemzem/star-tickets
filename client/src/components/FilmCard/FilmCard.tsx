@@ -66,30 +66,26 @@ const FilmCard = () => {
   return (
     <Card sx={{ bgcolor: "#27272a", py: 12, px: 2 }}>
       <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <CardMedia sx={{ height: 400 }}>
-            <Img alt="img" src={API_URL + "/" + film?.img} />
-          </CardMedia>
-        </Grid>
-        <Grid item xs={8}>
-          <Container>
-            <CardContent>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                sx={{ mb: 4 }}
-              >
+        <Grid item  xs={12} sm>
+          <Grid container flexDirection="column"  alignItems="center" xs={12} sm spacing={2}>
+            <Grid item >
+              <Typography gutterBottom variant="h4" component="div">
                 {film?.title}
               </Typography>
-
-              <Typography paragraph sx={{ mb: 2 }}>
-                {film?.info}
-              </Typography>
-
-              <Grid container spacing={2}>
+            </Grid>
+            <Grid item>
+              <CardMedia sx={{ height: 400 }}>
+                <Img alt="img" src={API_URL + "/" + film?.img} />
+              </CardMedia>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={12} md={8} >
+          <Container>
+            <CardContent>
+              <Grid container spacing={2} justifyContent="center">
                 {filmSessions?.map((filmSession) => (
-                  <Grid item key={filmSession.id} lg={3} md={4} sm={6} xs={12}>
+                  <Grid item key={filmSession.id} sm={3} md>
                     <Button
                       variant="outlined"
                       sx={{ mb: 4 }}
@@ -111,6 +107,9 @@ const FilmCard = () => {
                   </Grid>
                 ))}
               </Grid>
+              <Typography paragraph sx={{ mb: 2 }}>
+                {film?.info}
+              </Typography>
             </CardContent>
           </Container>
         </Grid>

@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import { Paper } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import Spinner from "../Spinner";
 import ErrorIndicator from "../ErrorIndicator";
 import FilmListItem from "../FilmListItem";
@@ -35,13 +33,7 @@ const FilmsList = () => {
 
   return (
     <Container maxWidth="xl" sx={{ paddingTop: 6 }}>
-      <Grid
-        container
-        rowSpacing={8}
-        columnSpacing={4}
-        px={4}
-        justifyContent="center"
-      >
+      <Grid container spacing={2} justifyContent="center">
         {films?.map((film) => (
           <Grid item key={film.id} lg={3} md={4} sm={6} xs={12}>
             <FilmListItem {...film} />
