@@ -7,7 +7,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, Button, Container, Grid } from "@mui/material";
+import { Box, Button, Container, Divider, Grid } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import Spinner from "../Spinner";
 import ErrorIndicator from "../ErrorIndicator";
@@ -66,9 +66,16 @@ const FilmCard = () => {
   return (
     <Card sx={{ bgcolor: "#27272a", py: 12, px: 2 }}>
       <Grid container spacing={2}>
-        <Grid item  xs={12} sm>
-          <Grid container flexDirection="column"  alignItems="center" xs={12} sm spacing={2}>
-            <Grid item >
+        <Grid item xs={12} sm>
+          <Grid
+            container
+            flexDirection="column"
+            alignItems="center"
+            xs={12}
+            sm
+            spacing={2}
+          >
+            <Grid item>
               <Typography gutterBottom variant="h4" component="div">
                 {film?.title}
               </Typography>
@@ -80,8 +87,9 @@ const FilmCard = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} md={8} >
+        <Grid item xs={12} md={8}>
           <Container>
+            <Divider />
             <CardContent>
               <Grid container spacing={2} justifyContent="center">
                 {filmSessions?.map((filmSession) => (
@@ -107,7 +115,8 @@ const FilmCard = () => {
                   </Grid>
                 ))}
               </Grid>
-              <Typography paragraph sx={{ mb: 2 }}>
+              <Divider />
+              <Typography paragraph sx={{ my: 2 }}>
                 {film?.info}
               </Typography>
             </CardContent>

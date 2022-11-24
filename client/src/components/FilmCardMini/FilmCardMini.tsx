@@ -1,6 +1,6 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import { CardMedia, Container, Grid, Typography } from "@mui/material";
+import { CardMedia, Container, Divider, Grid, Typography } from "@mui/material";
 import imgSmall from "../../images/0a035c40-0875-4704-ae46-52d1f27d6dc3.jpg";
 
 const Img = styled("img")({
@@ -8,14 +8,16 @@ const Img = styled("img")({
   display: "block",
   maxWidth: "100%",
   maxHeight: "100%",
+  borderRadius: "0.5rem",
 });
 
 const FilmCardMini = () => {
   return (
-    <Container maxWidth="xl" sx={{ paddingTop: 16 }}>
-      <Grid container spacing={4}>
+    <Container maxWidth="xl" sx={{ paddingTop: 12 }}>
+      <Divider />
+      <Grid container spacing={4} sx={{ py: 4 }}>
         <Grid item>
-          <CardMedia sx={{ height: 140 }}>
+          <CardMedia sx={{ height: 180 }} >
             <Img alt="img" src={imgSmall} />
           </CardMedia>
         </Grid>
@@ -40,6 +42,7 @@ const FilmCardMini = () => {
           </Grid>
         </Grid>
       </Grid>
+      <Divider />
     </Container>
   );
 };
