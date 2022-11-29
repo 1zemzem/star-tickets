@@ -34,6 +34,13 @@ export const ratingsReducer = (
         ratingsList: action.payload,
         error: false,
       };
+    case RatingsActionTypes.FETCH_ONE_RATING:
+      return {
+        ...state,
+        isLoaded: false,
+        error: false,
+        ratingsList: [...state.ratingsList, action.payload],
+      };
 
     default:
       return state;

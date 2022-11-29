@@ -4,7 +4,7 @@ import type { RootState } from "../../store/store";
 const seatsSelector = (store: RootState) => store.seats;
 
 const seatsListSelector = createSelector(
-  [seatsSelector], 
+  [seatsSelector],
   (seats) => seats.seatsList
 );
 
@@ -13,20 +13,19 @@ const seatByIdSelector = createSelector(
   (seats, id) => seats.find((item) => item.id === id)
 );
 
-const isLoadedRatingselector = createSelector(
-  [seatsSelector], 
+const isLoadedSeatselector = createSelector(
+  [seatsSelector],
   (seats) => seats.isLoaded
 );
 
-const errorRatingselector = createSelector(
-  [seatsSelector], 
+const errorSeatselector = createSelector(
+  [seatsSelector],
   (seats) => seats.error
 );
 
-//   const filmByIdSelector = (id: number) => (store: RootState) => {
-//     return store.ratings.ratingsList.filter(
-//       (film) => film.ratingId === id
-//     );
-//   };
-
-export { seatsListSelector, seatByIdSelector, isLoadedRatingselector, errorRatingselector };
+export {
+  seatsListSelector,
+  seatByIdSelector,
+  isLoadedSeatselector,
+  errorSeatselector,
+};

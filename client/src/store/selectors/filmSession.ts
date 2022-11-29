@@ -15,6 +15,11 @@ const filmSessionsByIdSelector = createSelector(
   (sessions, filmId) => sessions.filter((session) => session.filmId === filmId)
 );
 
+const filmSessionsByRoomSelector = createSelector(
+  [filmSessionsListSelector, (store: RootState, film_roomId: number) => film_roomId],
+  (sessions, film_roomId) => sessions.filter((session) => session.film_roomId === film_roomId)
+);
+
 const isLoadedSessionsSelector = createSelector(
   [filmSessionsSelector],
   (filmsSession) => filmsSession.isLoaded
@@ -30,4 +35,5 @@ export {
   isLoadedSessionsSelector,
   errorSessionsSelector,
   filmSessionsByIdSelector,
+  filmSessionsByRoomSelector,
 };

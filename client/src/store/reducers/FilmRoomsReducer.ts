@@ -33,6 +33,13 @@ import {
           filmRoomsList: action.payload,
           error: false,
         };
+        case FilmRoomsActionTypes.FETCH_ONE_FILMROOM:
+        return {
+          ...state,
+          isLoaded: false,
+          error: false,
+          filmRoomsList: [...state.filmRoomsList, action.payload],
+        }; 
   
       default:
         return state;

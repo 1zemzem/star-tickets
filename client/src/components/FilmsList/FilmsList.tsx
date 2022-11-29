@@ -14,13 +14,13 @@ import { fetchFilms } from "../../store/actionCreator/film";
 
 const FilmsList = () => {
   const dispatch = useAppDispatch();
-
   const films = useAppSelector(filmsListSelector);
   const isLoaded = useAppSelector(isLoadedFilmSelector);
   const error = useAppSelector(errorFilmSelector);
 
   useEffect(() => {
     dispatch(fetchFilms());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (isLoaded) {

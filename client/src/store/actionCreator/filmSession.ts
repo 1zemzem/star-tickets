@@ -1,4 +1,4 @@
-import { authHost, host } from "../../service/index";
+import { authHost, host, API_URL_FILMSESSION } from "../../service/index";
 import {
   FilmSessionsActionTypes,
   FetchFilmSession,
@@ -9,7 +9,7 @@ export const fetchAllFilmSessions = (filmId: number) => {
   return async (dispatch: Dispatch<FetchFilmSession>) => {
     try {
       dispatch({ type: FilmSessionsActionTypes.FETCH_DATA_BEGIN_FILMSESSION });
-      const response = await host.get("api/film_session", {
+      const response = await host.get(API_URL_FILMSESSION, {
         params: { filmId },
       });
 
@@ -30,12 +30,12 @@ export const fetchOneFilmSession = (id: number) => {
   return async (dispatch: Dispatch<FetchFilmSession>) => {
     try {
       dispatch({ type: FilmSessionsActionTypes.FETCH_DATA_BEGIN_FILMSESSION });
-      const response = await host.get("api/film_session" + id);
+      const response = await host.get(API_URL_FILMSESSION + id);
       dispatch({
         type: FilmSessionsActionTypes.FETCH_ONE_FILMSESSION,
         payload: response.data,
       });
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       dispatch({
         type: FilmSessionsActionTypes.FETCH_DATA_ERROR_FILMSESSION,

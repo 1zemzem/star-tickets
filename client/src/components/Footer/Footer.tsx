@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { Container, Paper, TextField } from "@mui/material";
+import { Container, MenuItem, Paper, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -31,16 +31,23 @@ const iconStyle = {
 
 const LANGUAGES = [
   {
-    code: "ru-RUS",
-    name: "Русский",
+    id: "1",
+    value: "ru-RUS",
+    label: "Русский",
   },
   {
-    code: "en-US",
-    name: "English",
+    id: "2",
+    value: "en-US",
+    label: "English",
   },
 ];
 
 export default function AppFooter() {
+  const [language, setLanguage] = React.useState(LANGUAGES[0].value);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLanguage(event.target.value);
+  };
   return (
     <Paper
       sx={{ p: 2, bottom: 0, width: "100%" }}
@@ -49,7 +56,7 @@ export default function AppFooter() {
     >
       <Container sx={{ my: 2, display: "flex" }} maxWidth="xl">
         <Grid container spacing={5}>
-          <Grid item xs={6} sm={4} md={3}>
+          <Grid item xs={8} sm={6} md={4}>
             <Grid
               container
               direction="column"
@@ -72,7 +79,7 @@ export default function AppFooter() {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={6} sm={4} md={2}>
+          <Grid item xs={8} sm={6} md={4}>
             <Typography variant="h6">Legal</Typography>
             <Box component="ul" sx={{ m: 0, listStyle: "none", p: 0 }}>
               <Box component="li" sx={{ py: 0.5 }}>
@@ -83,21 +90,21 @@ export default function AppFooter() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={6} sm={8} md={4}>
+          <Grid item xs={8} sm={6} md={4}>
             <Typography variant="h6">Language</Typography>
             <TextField
+              id="filled-select-lang"
               select
-              size="medium"
               variant="standard"
-              SelectProps={{
-                native: true,
-              }}
+              size="medium"
+              value={language}
+              onChange={handleChange}
               sx={{ mt: 1, width: 150 }}
             >
               {LANGUAGES.map((language) => (
-                <option value={language.code} key={language.code}>
-                  {language.name}
-                </option>
+                <MenuItem key={language.id} value={language.value}>
+                  {language.label}
+                </MenuItem>
               ))}
             </TextField>
           </Grid>

@@ -4,7 +4,7 @@ import type { RootState } from "../../store/store";
 const filmRoomsSelector = (store: RootState) => store.filmRooms;
 
 const filmRoomsListSelector = createSelector(
-  [filmRoomsSelector], 
+  [filmRoomsSelector],
   (filmRooms) => filmRooms.filmRoomsList
 );
 
@@ -14,19 +14,18 @@ const filmRoomByIdSelector = createSelector(
 );
 
 const isLoadedfilmRoomselector = createSelector(
-  [filmRoomsSelector], 
+  [filmRoomsSelector],
   (filmRooms) => filmRooms.isLoaded
 );
 
 const errorfilmRoomselector = createSelector(
-  [filmRoomsSelector], 
+  [filmRoomsSelector],
   (filmRooms) => filmRooms.error
 );
 
-//   const filmByIdSelector = (id: number) => (store: RootState) => {
-//     return store.filmRooms.filmRoomsList.filter(
-//       (film) => film.ratingId === id
-//     );
-//   };
-
-export { filmRoomsListSelector, filmRoomByIdSelector, isLoadedfilmRoomselector, errorfilmRoomselector };
+export {
+  filmRoomsListSelector,
+  filmRoomByIdSelector,
+  isLoadedfilmRoomselector,
+  errorfilmRoomselector,
+};

@@ -35,6 +35,13 @@ export const filmSessionsReducer = (
         filmSessionsList: action.payload,
         error: false,
       };
+    case FilmSessionsActionTypes.FETCH_ONE_FILMSESSION:
+      return {
+        ...state,
+        isLoaded: false,
+        error: false,
+        filmSessionsList: [...state.filmSessionsList, action.payload],
+      };
 
     default:
       return state;

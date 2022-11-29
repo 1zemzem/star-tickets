@@ -22,6 +22,12 @@ import { fetchOneFilm } from "../../store/actionCreator/film";
 import { filmByIdSelector } from "../../store/selectors/film";
 import "moment/locale/ru";
 import { TICKETS_ROUTE } from "../../utils/const";
+// import {
+//   errorfilmRoomselector,
+//   filmRoomsListSelector,
+//   isLoadedfilmRoomselector,
+// } from "../../store/selectors/filmRoom";
+// import { fetchAllFilmRooms } from "../../store/actionCreator/filmRoom";
 
 const FilmCard = () => {
   const Img = styled("img")({
@@ -32,23 +38,24 @@ const FilmCard = () => {
     borderRadius: "0.5rem",
   });
 
+  const moment = require("moment");
+  moment.locale("ru"); // затребовать используемый модуль
   const navigate = useNavigate();
   const { id } = useParams();
   const filmId = Number(id);
   const dispatch = useAppDispatch();
-
   const film = useAppSelector((state) => filmByIdSelector(state, filmId));
-
-  const moment = require("moment");
-  moment.locale("ru"); // затребовать используемый модуль
 
   // const items = useSelector(state => selectItemsByCategory(state, 'javascript'));
   const filmSessions = useAppSelector((state) =>
     filmSessionsByIdSelector(state, filmId)
   );
-
   const isLoaded = useAppSelector(isLoadedSessionsSelector);
   const error = useAppSelector(errorSessionsSelector);
+
+  // const filmRoom = useAppSelector(filmRoomsListSelector);
+  // const isLoadedFilmRoom = useAppSelector(isLoadedfilmRoomselector);
+  // const errorFilmRoom = useAppSelector(errorfilmRoomselector);
 
   useEffect(() => {
     dispatch(fetchOneFilm(filmId));
@@ -63,6 +70,18 @@ const FilmCard = () => {
     return <ErrorIndicator />;
   }
 
+  // useEffect(() => {
+  //   dispatch(fetchAllFilmRooms());
+  // }, []);
+
+  // if (isLoadedFilmRoom) {
+  //   return <Spinner />;
+  // }
+
+  // if (errorFilmRoom) {
+  //   return <ErrorIndicator />;
+  // }
+
   return (
     <Card sx={{ bgcolor: "#27272a", py: 12, px: 2 }}>
       <Grid container spacing={2}>
@@ -71,8 +90,6 @@ const FilmCard = () => {
             container
             flexDirection="column"
             alignItems="center"
-            xs={12}
-            sm
             spacing={2}
           >
             <Grid item>
@@ -98,6 +115,7 @@ const FilmCard = () => {
                       variant="outlined"
                       sx={{ mb: 4 }}
                       onClick={() => navigate(TICKETS_ROUTE)}
+                      
                     >
                       <Grid>
                         <Grid item>
@@ -109,7 +127,7 @@ const FilmCard = () => {
                         <Grid item>
                           <Box sx={{ borderBottom: 1, my: 1 }} />
                         </Grid>
-                        <Grid item>{filmId}</Grid>
+                        <Grid item>{filmSession.film_roomId} {filmId}</Grid>
                       </Grid>
                     </Button>
                   </Grid>

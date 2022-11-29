@@ -27,7 +27,7 @@ export const fetchOneSeat = (id: number) => {
       dispatch({ type: SeatsActionTypes.FETCH_DATA_BEGIN });
       const response = await host.get("api/seat" + id);
       dispatch({
-        type: SeatsActionTypes.FETCH_DATA_SUCCESS,
+        type: SeatsActionTypes.FETCH_ONE_SEAT,
         payload: response.data,
       });
       console.log(response);

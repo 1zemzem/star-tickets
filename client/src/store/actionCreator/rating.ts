@@ -6,7 +6,7 @@ export const fetchAllRatings = () => {
     return async (dispatch: Dispatch<FetchRatings>) => {
       try {
         dispatch({ type: RatingsActionTypes.FETCH_DATA_BEGIN});
-        const response = await host.get("/api/rating");
+        const response = await host.get("api/rating");
         dispatch({
           type: RatingsActionTypes.FETCH_DATA_SUCCESS,
           payload: response.data,
@@ -24,9 +24,9 @@ export const fetchAllRatings = () => {
     return async (dispatch: Dispatch<FetchRatings>) => {
       try {
         dispatch({ type: RatingsActionTypes.FETCH_DATA_BEGIN });
-        const response = await host.get("/api/rating" + id);
+        const response = await host.get("api/rating" + id);
         dispatch({
-          type: RatingsActionTypes.FETCH_DATA_SUCCESS,
+          type: RatingsActionTypes.FETCH_ONE_RATING,
           payload: response.data,
         });
         console.log(response)

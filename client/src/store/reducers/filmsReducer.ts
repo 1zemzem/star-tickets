@@ -8,7 +8,6 @@ export const initialState: FilmsReducerState = {
   filmsList: [],
   isLoaded: false,
   error: false,
-  // searchByTime: number
 };
 
 export const filmsReducer = (
@@ -35,6 +34,13 @@ export const filmsReducer = (
         isLoaded: false,
         filmsList: action.payload,
         error: false,
+      };
+    case FilmsActionTypes.FETCH_ONE_FILM:
+      return {
+        ...state,
+        isLoaded: false,
+        error: false,
+        filmsList: [...state.filmsList, action.payload],
       };
 
     default:
